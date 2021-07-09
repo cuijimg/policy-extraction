@@ -13,10 +13,10 @@ headers = {'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64)'}
 url='http://www.pythonscraping.com/pages/page3.html'
 r = requests.get(url, headers=headers)
 soup = BeautifulSoup(r.text, 'lxml')
-children = soup.find('table',{'id':'giftList'}).children
+# children = soup.find('table',{'id':'giftList'}).children
 
-#content = soup.find('table',{'id':'giftList'})
-#children = content.findChildren()
+content = soup.find('table',{'id':'giftList'})
+children = content.findChildren()
 
 descendants = soup.find('table',{'id':'giftList'}).descendants
 sum = 0
