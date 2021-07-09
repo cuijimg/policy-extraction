@@ -63,25 +63,35 @@ THRESHOLD = 2
 
 
 import os
-path = r"C:\Users\f-cui\Desktop\ZEW\26" 
+path = r"C:\Users\F-CUI\Desktop\ZEW\26" 
+path1 = r"C:\Users\F-CUI\Desktop\ZEW\26html"
+
 files= os.listdir(path) 
 s = []
-threshhold = 1
 for file in files: 
     print(file)
+    contentlist = []
     if not os.path.isdir(file): 
         
         df = pd.read_csv(path+"/" + file, usecols=['html'], encoding="utf-8")
         
       
         for html in df['html']:
-            csvinfo =str(html)
+            csvinfo = str(html)
+
+            csvinfo= csvinfo.replace("<br>","\n")
+          
             if csvinfo != 'nan':
-                
+                # print(csvinfo_replace)
                 soup = BeautifulSoup(csvinfo, 'lxml')
+                # print(soup)
                 res = trim_node(soup)
                 print(res)
-                f = open(path+"/"+file.strip('.csv')+'.html','w',encoding="utf-8")
+                if res is not None:
+                    contentlist.append(res.get_text())
+                print(contentlist)
+                
+                f = open(path1+"/"+file.strip('.csv')+'.html','w',encoding="utf-8")
                 f.write(str(soup))
                 f.close()
             
