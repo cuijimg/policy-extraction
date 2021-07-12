@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Settings</title>
+    <link rel="stylesheet" href="static/login.css">
+</head>
+<body>
+
+<form method="post">
+    <h3>Name</h3>
+    <div name="option">
+        <span>Enter your name: </span>
+        <input type="text" name="name">
+    </div>
+
+    <h3>General Settings</h3>
+    <div>
+        <h4>Safe Mode</h4>
+        <div class="option">
+            <p>
+                If this is enabled, I try to remove all links, sources and scripts from the website.
+                For one, this speeds up the loading as e.g. the wayback machine takes quite a bid of loading time.
+                But it is also safer, since less - potentially malicious - external data is loaded.
+            </p>
+            <input id="safe_t" type="radio" name="safe" value="True"><label for="safe_t">Enabled</label>
+            <input id="safe_f" type="radio" name="safe" value="False" checked="checked">
+            <label for="safe_f">Disabled</label>
+        </div>
+    </div>
+
+    <input id="submit" type="submit">
+
+</form>
+</body>
+</html>

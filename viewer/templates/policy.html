@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>{{id}}</title>
+    <link rel="stylesheet" href="static/policy.css">
+</head>
+<body>
+
+<div id="response_header">
+
+    <span id="skip_policy"><a autofocus="True" href="/">Skip Policy</a></span>
+
+    <form id="res" method="post">
+        <span>Splitting worked:
+            <input id="res_good_t" type="radio" name="isGood" value="True"><label for="res_good_t">Yes</label>
+            <input id="res_good_f" type="radio" name="isGood" value="False"><label for="res_good_f">No</label>
+        </span>
+        <span>Citations:
+            <input id="res_cit_g" type="radio" name="cit" value="good"><label for="res_cit_g">Good</label>
+            <input id="res_cit_b" type="radio" name="cit" value="bad"><label for="res_cit_b">Bad</label>
+            <input id="res_cit_n" type="radio" name="cit" value="none"><label for="res_cit_b">None</label>
+        </span>
+        <span>
+            Note: <input name="text">
+        </span>
+        <input id="res_submit" type="submit">
+    </form>
+
+    <span id="settings_link">
+        <span>{{ name }} <span><a href="/settings"><img src="static/wrench-svgrepo-com.svg"/></a>
+    </span>
+
+</div>
+
+<iframe id="mainframe" src="/policy"></iframe>
+
+
+</body>
+</html>

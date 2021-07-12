@@ -63,19 +63,28 @@ THRESHOLD = 2
 
 
 import os
-path = r"C:\Users\F-CUI\Desktop\ZEW\26" 
+import glob
+
+from pathlib import Path
+# path = Path( r"C:/Users/F-CUI/Desktop/ZEW/26" )
+path = r"C:\Users\F-CUI\Desktop\ZEW\26"
 path1 = r"C:\Users\F-CUI\Desktop\ZEW\26html"
 
 files= os.listdir(path) 
+
+# files = list(path.glob("*.csv"))
+print(files)
 s = []
 for file in files: 
     print(file)
     contentlist = []
     if not os.path.isdir(file): 
         
-        df = pd.read_csv(path+"/" + file, usecols=['html'], encoding="utf-8")
-        
-      
+        # df = pd.read_csv(path+"/" + file, usecols=['html'], encoding="utf-8")
+        df = pd.read_csv(path+"/" + file, encoding="utf-8")
+        # df = pd.read_csv(path / file, encoding="utf-8")
+        df['content'] = ''
+        index = 0
         for html in df['html']:
             csvinfo = str(html)
 
@@ -94,5 +103,14 @@ for file in files:
                 f = open(path1+"/"+file.strip('.csv')+'.html','w',encoding="utf-8")
                 f.write(str(soup))
                 f.close()
-            
+                
+                # htmlpath = file.with_suffix('.html')
+                # htmlpath.write_text(str(soup))
+                
+                #write the text to a new column in the csv
+                df.at[index,'content'] = res.get_text()
+                index += 1
+        df.to_csv(path+"/" + file, encoding="utf-8")
+        df = pd.read_csv(path+"/" + file,usecols=['content'], encoding="utf-8") 
+        # print(df['content'][0])
     break

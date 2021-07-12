@@ -1,0 +1,36 @@
+#mainframe {
+    position: absolute;
+    height: calc(100% - 3em);
+    width: calc(100% - 5px);
+    left: 0px;
+    top: calc(3em - 5px);
+}
+
+#response_header {
+    display: flex;
+    justify-content: space-between;
+}
+
+#skip_policy {
+    margin-right: auto;
+}
+
+/* The center, decision part */
+#res {
+    flex: 0 0 auto;
+}
+#res span {
+    margin-left: 1em;
+}
+
+/* Settings part */
+#settings_link {
+    margin-left: auto;
+}
+#settings_link span {
+    text-align: right;
+}
+#settings_link img {
+    height: 1em;
+    width: 1em;
+}
