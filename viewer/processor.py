@@ -47,4 +47,14 @@ def process(html):
     # Therefore, I can simplify this function.
     soup = bs4.BeautifulSoup(html, 'lxml')
     res = trim_node(soup)
+    
+    strongcontents = soup.find_all('strong')
+    for strongcontent in strongcontents:
+        if len(strongcontent.text)>0:
+            if strongcontent.text[-1] not in {'?','.'} and strongcontent.text[-2:] not in {'an'}:
+                strongcontent['style'] = 'background-color: yellow; color: black'
+    
+    heading_tags = ["h1", "h2", "h3", "h4", "h5", "h6"]
+    for tags in soup.find_all(heading_tags):
+        tags['style'] = 'background-color: yellow; color: black'
     return soup
