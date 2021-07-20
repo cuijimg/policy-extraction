@@ -91,8 +91,8 @@ for file in files:
             if res is not None:
                 contentlist.append(res.get_text())
                 
-                for tag in res.find_all(re.compile("^tel")):
-                    print(tag.name)
+                for text in res.find_all(text=re.compile("^tel")):
+                    print(text)
             # print(contentlist)
                 
                 # f = open(path1+"/"+file.strip('.csv')+'.html','w',encoding="utf-8")

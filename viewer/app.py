@@ -22,7 +22,7 @@ class Settings:
 def replace_all_links(soup):
     """
     This function removes all tags that contain an external reference (so either a href or src attribute).
-    For onw, this makes loading the page faster, especially if it was pulling data from the wayback machine.
+    For now, this makes loading the page faster, especially if it was pulling data from the wayback machine.
     But since I don't know what the page would like to include, it is also safer.
 
     I also remove all scripts and delete all onload attributes.

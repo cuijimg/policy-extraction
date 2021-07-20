@@ -30,8 +30,23 @@ def trim_node(root):
     elif len(viable_children) == 1:
         return trim_node(viable_children[0])
     else:
-        root['style'] = 'border: 1px solid red;'
+        root['style'] = 'border: 4px solid red;'
         return root
+
+
+def trim_node1(root):
+    for child in root.contents:
+        if type(child) is bs4.element.NavigableString:
+            if score_text(str(child))>1:
+                child.parent['style'] = 'border: 3px solid orange;'
+            continue
+        if type(child) is not bs4.element.Tag:
+            continue
+        if len(child.contents)>1:
+            trim_node1(child)
+        else:
+            if score_text(child.get_text())>1:
+                child['style'] = 'border: 3px solid orange;'
 
 keywords=['Datenschutzerklärung','Datenschutz','Datenschutzhinweise',
       'EU-Datenschutz¬grundverordnung','Datenschutzbeauftragte',
@@ -47,6 +62,8 @@ def process(html):
     # Draw a box around policy content
     soup = bs4.BeautifulSoup(html, 'lxml')
     res = trim_node(soup)
+    if soup.find_all(attrs={'style':'border: 4px solid red;'}) == []:
+        trim_node1(soup)
     
     # Highlight titles
     # Pattern 1: with the tag 'strong'
@@ -62,7 +79,7 @@ def process(html):
         tags['style'] = 'background-color: yellow; color: black'
     
     # Mark contact information
-    patternlist = ["^\nTel.*","^\nE-Mail.*",".*Straße.*|str.*"]
+    patternlist = ["^\nTel.*","^\nE-Mail.*",".*Straße.*|str\..*","^E-Mail.*","^Tel.*"]
     for pattern in patternlist:
         for ele in soup.find_all(text=re.compile(pattern,re.I)):
             ele.parent['style'] = 'background-color: blue; color: yellow'

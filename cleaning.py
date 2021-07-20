@@ -49,8 +49,23 @@ def trim_node(root):
     elif len(viable_children) == 1:
         return trim_node(viable_children[0])
     else:
-        root['style'] = 'border: 1px solid red;'
+        root['style'] = 'border: 4px solid red;'
         return root
+    
+def trim_node1(root):
+    print('executed')
+    for child in root.contents:
+        if type(child) is bs4.element.NavigableString:
+            if score_text(str(child))>1:
+                child.parent['style'] = 'border: 3px solid orange;'
+            continue
+        if type(child) is not bs4.element.Tag:
+            continue
+        if len(child.contents)>1:
+            trim_node1(child)
+        else:
+            if score_text(child.get_text())>1:
+                child['style'] = 'border: 3px solid orange;'
     
 keywords=['Datenschutzerklärung','Datenschutz','Datenschutzhinweise',
           'EU-Datenschutz¬grundverordnung','Datenschutzbeauftragte',
@@ -67,8 +82,8 @@ import glob
 
 from pathlib import Path
 # path = Path( r"C:/Users/F-CUI/Desktop/ZEW/26" )
-path = r"C:\Users\F-CUI\Desktop\ZEW\26"
-path1 = r"C:\Users\F-CUI\Desktop\ZEW\26html"
+path = r"C:\Users\F-CUI\Desktop\ZEW\test"
+path1 = r"C:\Users\F-CUI\Desktop\ZEW\test"
 
 files= os.listdir(path) 
 
@@ -88,29 +103,33 @@ for file in files:
         for html in df['html']:
             csvinfo = str(html)
 
-            csvinfo= csvinfo.replace("<br>","\n")
-          
+            
             if csvinfo != 'nan':
                 # print(csvinfo_replace)
                 soup = BeautifulSoup(csvinfo, 'lxml')
                 # print(soup)
                 res = trim_node(soup)
+                
+                if soup.find_all(attrs={'style':'border: 4px solid red;'}) == []:
+                    trim_node1(soup)
+                    
                 print(res)
+                
                 if res is not None:
                     contentlist.append(res.get_text())
                 print(contentlist)
                 
-                f = open(path1+"/"+file.strip('.csv')+'.html','w',encoding="utf-8")
-                f.write(str(soup))
-                f.close()
+        #         f = open(path1+"/"+file.strip('.csv')+'.html','w',encoding="utf-8")
+        #         f.write(str(soup))
+        #         f.close()
                 
-                # htmlpath = file.with_suffix('.html')
-                # htmlpath.write_text(str(soup))
+        #         # htmlpath = file.with_suffix('.html')
+        #         # htmlpath.write_text(str(soup))
                 
-                #write the text to a new column in the csv
-                df.at[index,'content'] = res.get_text()
-                index += 1
-        df.to_csv(path+"/" + file, encoding="utf-8")
-        df = pd.read_csv(path+"/" + file,usecols=['content'], encoding="utf-8") 
-        # print(df['content'][0])
+        #         #write the text to a new column in the csv
+        #         df.at[index,'content'] = res.get_text()
+        #         index += 1
+        # df.to_csv(path+"/" + file, encoding="utf-8")
+        # df = pd.read_csv(path+"/" + file,usecols=['content'], encoding="utf-8") 
+        # # print(df['content'][0])
     break
