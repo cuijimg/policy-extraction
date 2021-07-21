@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <title>{{id}}</title>
     <link rel="stylesheet" href="static/policy.css">
+    <link rel="stylesheet" href="static/menu.css">
 </head>
 <body>
 
@@ -15,6 +16,7 @@
         <span>Splitting worked:
             <input id="res_good_t" type="radio" name="isGood" value="True"><label for="res_good_t">Yes</label>
             <input id="res_good_f" type="radio" name="isGood" value="False"><label for="res_good_f">No</label>
+            <input id="res_no_pol" type="radio" name="isGood" value="NoPol"><label for="res_no_pol">No Policy</label>
         </span>
         <span>Citations:
             <input id="res_cit_g" type="radio" name="cit" value="good"><label for="res_cit_g">Good</label>
@@ -27,8 +29,14 @@
         <input id="res_submit" type="submit">
     </form>
 
-    <span id="settings_link">
-        <span>{{ name }} <span><a href="/settings"><img src="static/wrench-svgrepo-com.svg"/></a>
+    <span id="menu">
+        <span>{{ name }}
+            <span>
+                <a href="/help"><img src="/static/question_mark.svg"/></a>
+            </span>
+            <span>
+                <a href="/login"><img src="/static/wrench-svgrepo-com.svg"/></a>
+            </span>
     </span>
 
 </div>

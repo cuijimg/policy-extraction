@@ -1,0 +1,10 @@
+/* some general stuff for the menu item */
+
+#menu {
+    text-align: right;
+}
+
+#menu img {
+    height: 1em;
+    width: 1em;
+}

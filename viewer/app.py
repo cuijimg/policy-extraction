@@ -106,7 +106,12 @@ def settings():
         response.set_cookie('userID', new_setting.name)
         return response
     else:
-        return render_template('login.html')
+        user = request.cookies.get('userID', None)
+        if user is None or user not in user_settings:
+            setting = None
+        else:
+            setting = user_settings[user]
+        return render_template('login.html', name=setting.name if setting is not None else None)
 
 
 @app.route('/', methods=['GET', 'POST'])
@@ -145,6 +150,17 @@ def get_policy():
     if policy is None:
         return "Error"
     return str(policy)
+
+
+@app.route('/help')
+def help_route():
+    # First get the user settings.
+    user = request.cookies.get('userID', None)
+    if user is None or user not in user_settings:
+        setting = None
+    else:
+        setting = user_settings[user]
+    return render_template('help.html', name=setting.name if setting is not None else None)
 
 user_policy_dict = {}
 pol = Policies(policy_path)

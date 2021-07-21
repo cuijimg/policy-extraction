@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Help</title>
+    <link rel="stylesheet" href="/static/menu.css">
+</head>
+<body>
+
+<div id="menu">
+    <span>{{ name if name is not none else ''}}
+        <span>
+            <a href="/help"><img src="/static/question_mark.svg"/></a>
+        </span>
+        <span>
+            <a href="/login"><img src="/static/wrench-svgrepo-com.svg"/></a>
+        </span>
+    </span>
+</div>
+
+<h2>Policy Viewer</h2>
+
+<p>
+    The policy viewer is a python web app that allows for an easy way to visualize markings
+    in the original policies.
+    All it needs is a function that applies some style information to the html object given
+    and it will run this function for a sample of policies and show them to the user.
+    The user can then decide on whether the parsing and citation recognition worked, and even leave a note.
+    This is then written to a json file.
+</p>
+
+<p>
+    This is a short help trying to explain how to use this viewer webapp.
+    The two relevant section cover the menu bar when looking at a policy and the settings.
+</p>
+
+
+<h3>Menu Bar</h3>
+
+<p>
+    In the menu bar there are three fields:
+    <ol>
+        <li>Splitting worked</li>
+        <li>Citations</li>
+        <li>Note</li>
+    </ol>
+</p>
+<p>
+    In the first element you can enter whether the extraction worked.
+    The options are either yes (the policy was correctly recognized and the box / other markings are okay),
+    no (something is not good), or 'no policy' if there is no policy on the website and the parser found nothing.
+</p>
+<p>
+    The citations field allows you to mark whether the citations were correctly recognized (good),
+    either incorrectly or not at all recognized (bad), or there are no citations.
+</p>
+<p>
+    Note is a text field where you can enter a note without any form.
+    It is then written directly to the output file.
+</p>
+
+
+<h3 id="settings_header">Settings</h3>
+
+<p>
+    Here I want to outline the settings available.
+    Right now there are only two, name and safe mode.
+</p>
+<p>
+    We can use the name to keep track of who wrote which line to the decisions file.
+    Any value (except leaving it blank) will work.
+</p>
+<p>
+    If the safe mode is enabled, I try to remove all links, sources and scripts from the website.
+    This is safer, since less - potentially malicious - external data is loaded.
+    But primarily I've written it to speed up loading.
+    The wayback machine replaces some links it also archived with links to its archived copy.
+    This can restore style information or even pictures, but since the wayback machine is quite slow, it also significanly increases load time.
+    If you want a more accurate picture of the website, turn safe mode off.
+    If you are okay with only seeing the text and no style in return for quick loading, turn safe mode on.
+</p>
+
+</body>
+</html>
