@@ -22,7 +22,7 @@ class Settings:
 def replace_all_links(soup):
     """
     This function removes all tags that contain an external reference (so either a href or src attribute).
-    For now, this makes loading the page faster, especially if it was pulling data from the wayback machine.
+    For onw, this makes loading the page faster, especially if it was pulling data from the wayback machine.
     But since I don't know what the page would like to include, it is also safer.
 
     I also remove all scripts and delete all onload attributes.
@@ -106,7 +106,12 @@ def settings():
         response.set_cookie('userID', new_setting.name)
         return response
     else:
-        return render_template('login.html')
+        user = request.cookies.get('userID', None)
+        if user is None or user not in user_settings:
+            setting = None
+        else:
+            setting = user_settings[user]
+        return render_template('login.html', name=setting.name if setting is not None else None)
 
 
 @app.route('/', methods=['GET', 'POST'])
@@ -145,6 +150,17 @@ def get_policy():
     if policy is None:
         return "Error"
     return str(policy)
+
+
+@app.route('/help')
+def help_route():
+    # First get the user settings.
+    user = request.cookies.get('userID', None)
+    if user is None or user not in user_settings:
+        setting = None
+    else:
+        setting = user_settings[user]
+    return render_template('help.html', name=setting.name if setting is not None else None)
 
 user_policy_dict = {}
 pol = Policies(policy_path)

@@ -43,7 +43,10 @@ def trim_node(root):
         if type(child) is not bs4.element.Tag:
             continue
         if score_text(child.get_text()) >= THRESHOLD:
+            print(1)
+            print(score_text(child.get_text()) )
             viable_children.append(child)
+            print(viable_children)
     if len(viable_children) == 0:
         return None
     elif len(viable_children) == 1:
@@ -53,9 +56,13 @@ def trim_node(root):
         return root
     
 def trim_node1(root):
-    print('executed')
+    # print('executed')
     for child in root.contents:
+        print(1)
+        print(child)
+        print(2)
         if type(child) is bs4.element.NavigableString:
+            print('NS')
             if score_text(str(child))>1:
                 child.parent['style'] = 'border: 3px solid orange;'
             continue
@@ -64,7 +71,8 @@ def trim_node1(root):
         if len(child.contents)>1:
             trim_node1(child)
         else:
-            if score_text(child.get_text())>1:
+            print('score',score_text(child.get_text()))
+            if score_text(child.get_text())>0:
                 child['style'] = 'border: 3px solid orange;'
     
 keywords=['Datenschutzerklärung','Datenschutz','Datenschutzhinweise',
@@ -74,7 +82,7 @@ keywords=['Datenschutzerklärung','Datenschutz','Datenschutzhinweise',
           'Verarbeitung','personenbezogenen','DSGVO','DS-GVO',
           'Rechte','Auskunft','Auskunftsrecht','Recht','Analytics']
 
-THRESHOLD = 2
+THRESHOLD = 4
 
 
 import os
@@ -119,9 +127,9 @@ for file in files:
                     contentlist.append(res.get_text())
                 print(contentlist)
                 
-        #         f = open(path1+"/"+file.strip('.csv')+'.html','w',encoding="utf-8")
-        #         f.write(str(soup))
-        #         f.close()
+                f = open(path1+"/"+file.strip('.csv')+'.html','w',encoding="utf-8")
+                f.write(str(soup))
+                f.close()
                 
         #         # htmlpath = file.with_suffix('.html')
         #         # htmlpath.write_text(str(soup))

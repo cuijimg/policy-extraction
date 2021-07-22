@@ -23,14 +23,7 @@
     margin-left: 1em;
 }
 
-/* Settings part */
-#settings_link {
+/* I need to add the margin to the menu span */
+#menu {
     margin-left: auto;
-}
-#settings_link span {
-    text-align: right;
-}
-#settings_link img {
-    height: 1em;
-    width: 1em;
 }

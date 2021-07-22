@@ -24,7 +24,11 @@ Franz Immobilien GmbH
 <br>
 Lietzenburger Straße 51
 <br>
-10789 Berlin
+parj Str. 51
+<br>
+gog Strasse 51
+<br>
+10789 Berlin abcdefghijklmnopqrstuvwxyz
 <br>
 Deutschland
 <br>
@@ -33,6 +37,19 @@ Tel.: 030/211300-1
 E-Mail: mail@franzimmobilien.de
 <br>
 Website: www.franzimmobilien.de
+</p>
+
+<p>
+Lietzenburger Straße 51
+</p>
+<p>
+Art.101 jiji DSGVO
+</p>
+<p>
+parj Str. 51
+</p>
+<p>
+gog Strasse 51
 </p>
 
 <p class="story">Once upon a time there were three little sisters; and their names were
@@ -49,13 +66,7 @@ and they lived at the bottom of a well.</p>
 import re
 from bs4 import BeautifulSoup
 soup = BeautifulSoup(html_doc, 'html.parser')
-tel = soup.find_all(text=re.compile("^\nTel.*"))
 
-patternlist = ["^\nTel.*","^\nE-Mail.*",".*Straße.*|str\..*"]
-for pattern in patternlist:
-    for ele in soup.find_all(text=re.compile(pattern,re.I)):
-        ele.parent['style'] = 'background-color: blue; color: yellow'
-        # ele.extract()
 
 # print(len(soup.contents[1].contents[2].contents[5].contents))
 
@@ -77,5 +88,38 @@ def trim(root):
             trim(child)
         else:
             print(child.get_text())
-trim(soup)
+# trim(soup)
+# This is the reworked regex. I only had to change a few minor things.
+exp = re.compile(r'\b(art[.]?|arti[a-z]+|§)\W+(?:\w+\W+){1,10}(ds[-]*g[-]*vo|bdsg|Datenschutzgrundverordnung|TMG)\b', re.IGNORECASE)
 
+
+def res(match):
+    """This function replaces the found citation with a span element with yellow background."""
+    return f'<span style="background: purple">{match.group()}</span>'
+
+def res2(match):
+    """This function replaces the found citation with a span element with yellow background."""
+    return f'<span style="background: green">{match.group()}</span>'
+
+
+def highlight(exp,res,input: str) -> str:
+    """This function takes the html as string, matches all regular expressions and replaces the span elements."""
+    return exp.sub(res, input)
+
+patternlist = {"website:.*","^\nE-Mail:.*","Deutschland","[0-9]{5}[\s|\w]{1,10}",".*gmbh.*",".*Straße.*",".*Strasse.*","E-Mail:.*","Tel\..*",".*str\..*"}
+    # for pattern in patternlist:
+    #     for ele in soup.find_all(text=re.compile(pattern,re.I)):
+    #         if len(ele)<30:
+    #             ele.parent['style'] = 'background-color: blue; color: yellow'
+    #         # ele.extract()
+for pattern in patternlist:
+    text=re.compile(pattern,re.I)
+    soup = highlight(text,res2,str(soup))
+    
+print(str(soup))    
+# Highlight citations
+soup = highlight(exp,res,str(soup))
+print(soup)
+print(1)
+soup = bs4.BeautifulSoup(soup, 'lxml')
+print(soup)
