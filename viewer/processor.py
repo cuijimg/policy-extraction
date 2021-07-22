@@ -45,7 +45,7 @@ def trim_node1(root):
         if len(child.contents)>1:
             trim_node1(child)
         else:
-            if score_text(child.get_text())>1:
+            if score_text(child.get_text())>0:
                 child['style'] = 'border: 3px solid orange;'
 
 keywords=['Datenschutzerklärung','Datenschutz','Datenschutzhinweise',
@@ -55,8 +55,24 @@ keywords=['Datenschutzerklärung','Datenschutz','Datenschutzhinweise',
       'Verarbeitung','personenbezogenen','DSGVO','DS-GVO',
       'Rechte','Auskunft','Auskunftsrecht','Recht','Analytics']
 
-THRESHOLD = 2
+THRESHOLD = 4
 
+# This is the reworked regex. I only had to change a few minor things.
+regexp = re.compile(r'\b(art[.]?|arti[a-z]+|§)\W+(?:\w+\W+){1,10}(ds[-]*g[-]*vo|bdsg|Datenschutzgrundverordnung|TMG)\b', re.IGNORECASE)
+
+
+def res1(match):
+    """This function replaces the found citation with a span element with yellow background."""
+    return f'<span style="background: purple; color: yellow">{match.group()}</span>'
+
+def res2(match):
+    """This function replaces the found citation with a span element with yellow background."""
+    return f'<span style="background: green; color: yellow">{match.group()}</span>'
+
+
+def highlight(exp,res, input: str) -> str:
+    """This function takes the html as string, matches all regular expressions and replaces the span elements."""
+    return exp.sub(res, input)
 
 def process(html):
     # Draw a box around policy content
@@ -79,9 +95,18 @@ def process(html):
         tags['style'] = 'background-color: yellow; color: black'
     
     # Mark contact information
-    patternlist = ["^\nTel.*","^\nE-Mail.*",".*Straße.*|str\..*","^E-Mail.*","^Tel.*"]
+    patternlist = {"telefax:.*","email:.*","telefon:.*","website:.*","^\nE-Mail:.*","Deutschland","[0-9]{5}[\s|\w]{1,20}",".*GmbH.*",".*Straße.*",".*Strasse.*",".*Fax.*","E-Mail:.*","Tel\..*",".*str\..*"}
+    # for pattern in patternlist:
+    #     for ele in soup.find_all(text=re.compile(pattern,re.I)):
+    #         if len(ele)<30:
+    #             ele.parent['style'] = 'background-color: blue; color: yellow'
+    #         # ele.extract()
     for pattern in patternlist:
-        for ele in soup.find_all(text=re.compile(pattern,re.I)):
-            ele.parent['style'] = 'background-color: blue; color: yellow'
-            # ele.extract()
+        text = re.compile(pattern,re.I)
+        soup = highlight(text,res2,str(soup))
+        soup = bs4.BeautifulSoup(soup, 'lxml')
+    
+    # Highlight citations
+    soup = highlight(regexp,res1,str(soup))
+    soup = bs4.BeautifulSoup(soup, 'lxml')
     return soup
