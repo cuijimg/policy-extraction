@@ -123,3 +123,13 @@ print(soup)
 print(1)
 soup = bs4.BeautifulSoup(soup, 'lxml')
 print(soup)
+filtered_list = soup.find_all(attrs={'style':'background: green'})
+               
+recele = filtered_list[0]
+while recele != filtered_list[len(filtered_list)-1] and recele != None:
+    recele = recele.next_sibling
+    if type(recele) is bs4.element.Tag:
+        recele['style'] = 'background: green;'
+        print(recele)
+        print(1)
+print(soup)
