@@ -47,7 +47,7 @@ def trim_node1(root):
         else:
             if score_text(child.get_text())>0:
                 child['style'] = 'border: 3px solid orange;'
-
+                  
 keywords=['Datenschutzerklärung','Datenschutz','Datenschutzhinweise',
       'EU-Datenschutz¬grundverordnung','Datenschutzbeauftragte',
       'Datenschutzbeauftragter','Datenschutzbeauftragten',
@@ -62,11 +62,11 @@ regexp = re.compile(r'\b(art[.]?|arti[a-z]+|§)\W+(?:\w+\W+){1,10}(ds[-]*g[-]*vo
 
 
 def res1(match):
-    """This function replaces the found citation with a span element with yellow background."""
+    """This function replaces the found citation with a span element with different background."""
     return f'<span style="background: purple; color: yellow">{match.group()}</span>'
 
 def res2(match):
-    """This function replaces the found citation with a span element with yellow background."""
+    """This function replaces the found citation with a span element with different background."""
     return f'<span style="background: green; color: yellow">{match.group()}</span>'
 
 
@@ -80,6 +80,12 @@ def process(html):
     res = trim_node(soup)
     if soup.find_all(attrs={'style':'border: 4px solid red;'}) == []:
         trim_node1(soup)
+        filtered_list = soup.find_all(attrs={'style':'border: 3px solid orange;'})
+        if len(filtered_list)>=3:
+            filtered_list[2].parent['style'] = 'border: 4px solid green;'
+        if len(filtered_list)>=5:
+            filtered_list[4].parent['style'] = 'border: 4px solid green;'
+  
     
     # Highlight titles
     # Pattern 1: with the tag 'strong'
@@ -95,7 +101,7 @@ def process(html):
         tags['style'] = 'background-color: yellow; color: black'
     
     # Mark contact information
-    patternlist = {"telefax:.*","email:.*","telefon:.*","website:.*","^\nE-Mail:.*","Deutschland","[0-9]{5}[\s|\w]{1,20}",".*GmbH.*",".*Straße.*",".*Strasse.*",".*Fax.*","E-Mail:.*","Tel\..*",".*str\..*"}
+    patternlist = {"telefax:.*","email:.*","telefon:.*","website:.*","^\nE-Mail:.*","Deutschland","[0-9]{5}[\s|\w]{1,20}",".*gmbh",".*Straße.*",".*Strasse.*",".*Fax.*","E-Mail:.*","Tel\..*",".*str\..*"}
     # for pattern in patternlist:
     #     for ele in soup.find_all(text=re.compile(pattern,re.I)):
     #         if len(ele)<30:
