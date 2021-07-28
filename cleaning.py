@@ -43,10 +43,7 @@ def trim_node(root):
         if type(child) is not bs4.element.Tag:
             continue
         if score_text(child.get_text()) >= THRESHOLD:
-            print(1)
-            print(score_text(child.get_text()) )
             viable_children.append(child)
-            print(viable_children)
     if len(viable_children) == 0:
         return None
     elif len(viable_children) == 1:
@@ -58,11 +55,7 @@ def trim_node(root):
 def trim_node1(root):
     # print('executed')
     for child in root.contents:
-        print(1)
-        print(child)
-        print(2)
         if type(child) is bs4.element.NavigableString:
-            print('NS')
             if score_text(str(child))>1:
                 child.parent['style'] = 'border: 3px solid orange;'
             continue
@@ -71,7 +64,6 @@ def trim_node1(root):
         if len(child.contents)>1:
             trim_node1(child)
         else:
-            print('score',score_text(child.get_text()))
             if score_text(child.get_text())>0:
                 child['style'] = 'border: 3px solid orange;'
     
@@ -82,7 +74,7 @@ keywords=['Datenschutzerklärung','Datenschutz','Datenschutzhinweise',
           'Verarbeitung','personenbezogenen','DSGVO','DS-GVO',
           'Rechte','Auskunft','Auskunftsrecht','Recht','Analytics']
 
-THRESHOLD = 4
+
 
 
 import os
@@ -118,19 +110,25 @@ for file in files:
                 # print(soup)
                 res = trim_node(soup)
                 
-                if soup.find_all(attrs={'style':'border: 4px solid red;'}) == []:
-                    trim_node1(soup)
-                    
-                print(res)
+                # if soup.find_all(attrs={'style':'border: 4px solid red;'}) == []:
+                #     trim_node1(soup)
+                THRESHOLD = 4    
+                while soup.find_all(attrs={'style':'border: 4px solid red;'}) == []: 
+                    THRESHOLD -= 1
+                    res = trim_node(soup)
+                    print(THRESHOLD)
                 
-                if res is not None:
-                    contentlist.append(res.get_text())
-                print(contentlist)
+                
+                        
+                # filtered_list = soup.find_all(attrs={'style':'border: 3px solid orange;'})
+                # filtered_list[2].parent['style'] = 'border: 4px solid green;'
+                
                 
                 f = open(path1+"/"+file.strip('.csv')+'.html','w',encoding="utf-8")
                 f.write(str(soup))
+                print(1)
                 f.close()
-                
+                break    
         #         # htmlpath = file.with_suffix('.html')
         #         # htmlpath.write_text(str(soup))
                 
