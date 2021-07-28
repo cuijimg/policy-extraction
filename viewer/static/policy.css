@@ -11,9 +11,10 @@
     justify-content: space-between;
 }
 
-#skip_policy {
+#menu_left {
     margin-right: auto;
 }
+
 
 /* The center, decision part */
 #res {

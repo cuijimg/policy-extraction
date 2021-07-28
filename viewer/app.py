@@ -1,3 +1,4 @@
+import bs4
 import pandas as pd
 import pathlib
 import random
@@ -116,6 +117,7 @@ def settings():
 
 @app.route('/', methods=['GET', 'POST'])
 def view_patent():
+    global decisions_counter
     global tmp_pol_dict
     # First get the user settings.
     cookie = request.cookies.get('userID', None)
@@ -129,11 +131,12 @@ def view_patent():
                'isGood': form.get('isGood', ''), 'citation': form.get('cit', ''),
                'comment': form.get('text', '')}
         with open('decisions.json', 'a') as ofile:
+            decisions_counter += 1
             ofile.write(json.dumps(dat) + '\n')
 
     id, policy = pol.next_result()
     user_policy_dict[cookie] = id, policy
-    return render_template('policy.html', name=setting.name, id=id)
+    return render_template('policy.html', name=setting.name, id=id, counter=decisions_counter)
 
 
 @app.route('/policy')
@@ -146,7 +149,12 @@ def get_policy():
 
     policy = user_policy_dict[user][1]
     if setting.safe:
-        replace_all_links(policy)
+        if type(policy) is str:
+            try:
+                policy = bs4.BeautifulSoup(policy, 'lxml')
+                replace_all_links(policy)
+            except Exception as err:
+                policy = f'Encountered {str(err)} while removing links'
     if policy is None:
         return "Error"
     return str(policy)
@@ -162,8 +170,16 @@ def help_route():
         setting = user_settings[user]
     return render_template('help.html', name=setting.name if setting is not None else None)
 
+
 user_policy_dict = {}
 pol = Policies(policy_path)
 user_settings = {}
+if pathlib.Path('decisions.json').exists():
+    with open('decisions.json') as ifile:
+        for i, l in enumerate(ifile):
+            pass
+    decisions_counter = i + 1
+else:
+    decisions_counter = 0
 if __name__ == '__main__':
     app.run(ip)
