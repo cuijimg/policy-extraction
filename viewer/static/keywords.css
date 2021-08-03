@@ -1,0 +1,16 @@
+.keyword_cont {
+    margin-left: 1em;
+}
+
+.keyword_cont button {
+    width: 2em;
+}
+.keyword_cont span {
+    margin-left: 10px;
+}
+
+.new_button {
+    width: 2em;
+    margin-top: 5px;
+    margin-left: 1em;
+}
