@@ -20,7 +20,7 @@ html_doc = """
 <h4>Attention.</h4>
 <p class="title"><b>The Dormouse's story</b></p>
 <p>
-Franz Immobilien GmbH
+Franz Immobilien GmbH asdf
 <br>
 Lietzenburger Straße 51
 <br>
@@ -67,7 +67,9 @@ import re
 from bs4 import BeautifulSoup
 soup = BeautifulSoup(html_doc, 'html.parser')
 
-
+print(soup.head)
+soup.head.extract()
+print(soup)
 # print(len(soup.contents[1].contents[2].contents[5].contents))
 
 # for child in soup.contents[1].contents[2].contents[5].contents:
@@ -106,7 +108,7 @@ def highlight(exp,res,input: str) -> str:
     """This function takes the html as string, matches all regular expressions and replaces the span elements."""
     return exp.sub(res, input)
 
-patternlist = {"website:.*","^\nE-Mail:.*","Deutschland","[0-9]{5}[\s|\w]{1,10}",".*gmbh.*",".*Straße.*",".*Strasse.*","E-Mail:.*","Tel\..*",".*str\..*"}
+patternlist = {"website:.*","^\nE-Mail:.*","Deutschland","[0-9]{5}[\s|\w]{1,10}",".*gmbh",".*Straße.*",".*Strasse.*","E-Mail:.*","Tel\..*",".*str\..*"}
     # for pattern in patternlist:
     #     for ele in soup.find_all(text=re.compile(pattern,re.I)):
     #         if len(ele)<30:
@@ -116,20 +118,13 @@ for pattern in patternlist:
     text=re.compile(pattern,re.I)
     soup = highlight(text,res2,str(soup))
     
-print(str(soup))    
+  
 # Highlight citations
 soup = highlight(exp,res,str(soup))
-print(soup)
-print(1)
+
 soup = bs4.BeautifulSoup(soup, 'lxml')
-print(soup)
+
 filtered_list = soup.find_all(attrs={'style':'background: green'})
                
 recele = filtered_list[0]
-while recele != filtered_list[len(filtered_list)-1] and recele != None:
-    recele = recele.next_sibling
-    if type(recele) is bs4.element.Tag:
-        recele['style'] = 'background: green;'
-        print(recele)
-        print(1)
-print(soup)
+print(111)

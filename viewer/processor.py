@@ -55,7 +55,7 @@ keywords=['Datenschutzerklärung','Datenschutz','Datenschutzhinweise',
       'Verarbeitung','personenbezogenen','DSGVO','DS-GVO',
       'Rechte','Auskunft','Auskunftsrecht','Recht','Analytics']
 
-THRESHOLD = 4
+# THRESHOLD = 4
 
 # This is the reworked regex. I only had to change a few minor things.
 regexp = re.compile(r'\b(art[.]?|arti[a-z]+|§)\W+(?:\w+\W+){1,10}(ds[-]*g[-]*vo|bdsg|Datenschutzgrundverordnung|TMG)\b', re.IGNORECASE)
@@ -67,7 +67,7 @@ def res1(match):
 
 def res2(match):
     """This function replaces the found citation with a span element with different background."""
-    return f'<span style="background: green; color: yellow">{match.group()}</span>'
+    return f'<span style="background: green;">{match.group()}</span>'
 
 
 def highlight(exp,res, input: str) -> str:
@@ -77,14 +77,26 @@ def highlight(exp,res, input: str) -> str:
 def process(html):
     # Draw a box around policy content
     soup = bs4.BeautifulSoup(html, 'lxml')
+    
+    #Threshold decreasing method: if nothing is captured, decrease the threshold by 1
+    global THRESHOLD
+    THRESHOLD = 4
     res = trim_node(soup)
-    if soup.find_all(attrs={'style':'border: 4px solid red;'}) == []:
-        trim_node1(soup)
-        filtered_list = soup.find_all(attrs={'style':'border: 3px solid orange;'})
-        if len(filtered_list)>=3:
-            filtered_list[2].parent['style'] = 'border: 4px solid green;'
-        if len(filtered_list)>=5:
-            filtered_list[4].parent['style'] = 'border: 4px solid green;'
+    while soup.find_all(attrs={'style':'border: 4px solid red;'}) == []: 
+        THRESHOLD -= 1
+        if THRESHOLD == 0:
+            break
+        res = trim_node(soup)
+    # res = trim_node(soup)
+    # if soup.find_all(attrs={'style':'border: 4px solid red;'}) == []:
+    #     trim_node1(soup)
+    #     filtered_list = soup.find_all(attrs={'style':'border: 3px solid orange;'})
+    #     if len(filtered_list)>=3:
+    #         filtered_list[2].parent['style'] = 'border: 4px solid green;'
+    #     if len(filtered_list)>=4:
+    #         filtered_list[3].parent['style'] = 'border: 4px solid green;'
+    #     if len(filtered_list)>=5:
+    #         filtered_list[4].parent['style'] = 'border: 4px solid green;'
   
     
     # Highlight titles
@@ -92,7 +104,7 @@ def process(html):
     strongcontents = soup.find_all('strong')
     for strongcontent in strongcontents:
         if len(strongcontent.text)>0:
-            if strongcontent.text[-1] not in {'?','.'} and strongcontent.text[-2:] not in {'an'}:
+            if strongcontent.text [-1] not in {'?','.'} and strongcontent.text[-2:] not in {'an'}:
                 strongcontent['style'] = 'background-color: yellow; color: black'
     
     # Pattern 2: with heading tags
@@ -100,17 +112,17 @@ def process(html):
     for tags in soup.find_all(heading_tags):
         tags['style'] = 'background-color: yellow; color: black'
     
-    # Mark contact information
-    patternlist = {"telefax:.*","email:.*","telefon:.*","website:.*","^\nE-Mail:.*","Deutschland","[0-9]{5}[\s|\w]{1,20}",".*gmbh",".*Straße.*",".*Strasse.*",".*Fax.*","E-Mail:.*","Tel\..*",".*str\..*"}
+    # # Mark contact information
+    # patternlist = {"telefax:.*","email:.*","telefon:.*","website:.*","^\nE-Mail:.*","Deutschland","[0-9]{5}[\s|\w]{1,20}",".*gmbh",".*Straße.*",".*Strasse.*",".*Fax.*","E-Mail:.*","Tel\..*",".*str\..*"}
+    # # for pattern in patternlist:
+    # #     for ele in soup.find_all(text=re.compile(pattern,re.I)):
+    # #         if len(ele)<30:
+    # #             ele.parent['style'] = 'background-color: blue; color: yellow'
+    # #         # ele.extract()
     # for pattern in patternlist:
-    #     for ele in soup.find_all(text=re.compile(pattern,re.I)):
-    #         if len(ele)<30:
-    #             ele.parent['style'] = 'background-color: blue; color: yellow'
-    #         # ele.extract()
-    for pattern in patternlist:
-        text = re.compile(pattern,re.I)
-        soup = highlight(text,res2,str(soup))
-        soup = bs4.BeautifulSoup(soup, 'lxml')
+    #     text = re.compile(pattern,re.I)
+    #     soup = highlight(text,res2,str(soup))
+    #     soup = bs4.BeautifulSoup(soup, 'lxml')
     
     # Highlight citations
     soup = highlight(regexp,res1,str(soup))

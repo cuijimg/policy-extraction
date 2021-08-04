@@ -44,11 +44,14 @@ def trim_node(root):
             continue
         if score_text(child.get_text()) >= THRESHOLD:
             viable_children.append(child)
+            print('vialist',viable_children)
     if len(viable_children) == 0:
         return None
     elif len(viable_children) == 1:
+        print(111)
         return trim_node(viable_children[0])
     else:
+        print(len(viable_children))
         root['style'] = 'border: 4px solid red;'
         return root
     
@@ -108,13 +111,16 @@ for file in files:
                 # print(csvinfo_replace)
                 soup = BeautifulSoup(csvinfo, 'lxml')
                 # print(soup)
+                THRESHOLD = 4 
                 res = trim_node(soup)
                 
                 # if soup.find_all(attrs={'style':'border: 4px solid red;'}) == []:
                 #     trim_node1(soup)
-                THRESHOLD = 4    
+                   
                 while soup.find_all(attrs={'style':'border: 4px solid red;'}) == []: 
                     THRESHOLD -= 1
+                    if THRESHOLD == 0:
+                        break
                     res = trim_node(soup)
                     print(THRESHOLD)
                 
