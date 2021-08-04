@@ -127,4 +127,5 @@ def process(html):
     # Highlight citations
     soup = highlight(regexp,res1,str(soup))
     soup = bs4.BeautifulSoup(soup, 'lxml')
+
     return soup

@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Keywords</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
+    <script src="/static/keywords.js"></script>
+    <link rel="stylesheet" href="/static/keywords.css">
+</head>
+<body>
+
+
+<h2>Citation Structure</h2>
+<p>This is the structure of the citation for which the package looks. They are read only right now.</p>
+<table>
+    <tr>
+        <th>Element</th>
+        <th>Numeric</th>
+    </tr>
+    {% for element in data['citation_struct'] %}
+        <tr>
+            <th>{{ element[0] }}</th>
+            <th>{{ element[1] }}</th>
+        </tr>
+    {% endfor %}
+</table>
+
+<h3>Element keywords</h3>
+<p>These are the spellings for the citation structures.</p>
+{% for topic, keywords in data['keys'].items() %}
+    <div class="topic_cont" topic="{{ topic }}">
+    <div id="cont_{{ topic }}">
+        <h3 class="topic">{{ topic }}</h3>
+        {% for key in keywords %}
+            <div class="keyword_cont">
+                <button class="remove_button">-</button>
+                <span class="keyword" contentEditable="true">{{ key }}</span>
+            </div>
+        {% endfor %}
+    </div>
+    <button class="new_button" onclick="add_keyword('#cont_{{ topic }}')"> + </button>
+    </div>
+{% endfor %}
+
+<h2>Filler Words</h2>
+<p>These words are fillers.
+    They are allowed to be within a citation, without counting towards the maximum words or recognized as a law.
+</p>
+<div id="fillers">
+    {% for filler in data['fillers'] %}
+        <div class="keyword_cont">
+            <button class="remove_button">-</button>
+            <span class="keyword" contentEditable="true">{{ filler }}</span>
+        </div>
+    {% endfor %}
+    <button class="new_button" onclick="add_keyword('#fillers')"> + </button>
+</div>
+
+<h2>Join Words</h2>
+<p>These words are used to join two citations.</p>
+<div id="join_words">
+    {% for filler in data['join_words'] %}
+        <div class="keyword_cont">
+            <button class="remove_button">-</button>
+            <span class="keyword" contentEditable="true">{{ filler }}</span>
+        </div>
+    {% endfor %}
+    <button class="new_button" onclick="add_keyword('#join_words')"> + </button>
+</div>
+
+<button onclick="upload()">upload keywords</button>
+</body>
+</html>

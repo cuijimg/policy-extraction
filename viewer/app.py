@@ -172,6 +172,7 @@ def view_patent_same():
     return render_template('policy.html', name=setting.name, id=id, counter=decisions_counter)
 
 
+
 @app.route('/policy')
 def get_policy():
     # First get the user settings.
