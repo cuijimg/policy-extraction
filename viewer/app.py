@@ -8,6 +8,7 @@ import json
 import sys
 sys.path.append('..')
 import processor
+import citations
 
 
 policy_path = pathlib.Path("C:/Users/F-CUI/Desktop/ZEW/26")
@@ -193,6 +194,22 @@ def get_policy():
         return "Error"
     return str(policy)
 
+@app.route('/keywords', methods=['GET', 'POST'])
+def keywords():
+    if request.method == 'POST':
+        data = request.data.decode('utf-8')
+        print(data)
+        # I need to add the citation structure here, since i don't yet parse it from the site.
+        tmp = json.loads(data)
+        old = citations.get_keywords_data()
+        tmp['citation_struct'] = old['citation_struct']
+        data = json.dumps(tmp)
+        # and write the output
+        citations.set_keywords(data)
+        with open('keywords.json', 'w') as ofile:
+            ofile.write(data)
+    data = citations.get_keywords_data()
+    return render_template('keywords.html', data=data)
 
 @app.route('/help')
 def help_route():

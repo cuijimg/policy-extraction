@@ -35,11 +35,14 @@ def trim_node(root):
             continue
         if score_text(child.get_text()) >= THRESHOLD:
             viable_children.append(child)
+            print('vialist',viable_children)
     if len(viable_children) == 0:
         return None
     elif len(viable_children) == 1:
+        print(111)
         return trim_node(viable_children[0])
     else:
+        print(len(viable_children))
         root['style'] = 'border: 4px solid red;'
         return root
     
@@ -53,37 +56,53 @@ keywords=['Datenschutzerklärung','Datenschutz','Datenschutzhinweise',
           'Rechte','Auskunft','Auskunftsrecht','Recht','Analytics']
 
 
+
+
+import os
+import glob
+
 from pathlib import Path
-path = Path( r"C:/Users/F-CUI/Desktop/ZEW/26" )
-files = list(path.glob("*.csv"))
+# path = Path( r"C:/Users/F-CUI/Desktop/ZEW/26" )
+path = r"C:\Users\F-CUI\Desktop\ZEW\2test"
+path1 = r"C:\Users\F-CUI\Desktop\ZEW\test"
+
+files= os.listdir(path) 
+# files = list(path.glob("*.csv"))
+
 print(files)
-
+s = []
 for file in files: 
-    print(file) 
-    df = pd.read_csv(file, index_col=0, encoding="utf-8")
-    df['content'] = ''
-    for index, row in df.iterrows():
-        html = row['html']
-        csvinfo = str(html)
-        if csvinfo != 'nan':
-            soup = BeautifulSoup(csvinfo, 'lxml')
-            THRESHOLD = 4 
-            res = trim_node(soup)  
-            while soup.find_all(attrs={'style':'border: 4px solid red;'}) == []: 
-                THRESHOLD -= 1
-                if THRESHOLD == 0:
-                    break
-                res = trim_node(soup)
-                print(THRESHOLD)
-                
-            box = soup.find(attrs={'style':'border: 4px solid red;'})
-            if box != None:
-                df.loc[index,'content'] = box.get_text()   
-    print(df['content'])
-    df.to_csv(file, encoding="utf-8")
-    
-    # # for further check
-    # df = pd.read_csv(file,usecols=['content'], encoding="utf-8") 
-   
+    print(file)
+    contentlist = []
+    if not os.path.isdir(file): 
+        
+        # df = pd.read_csv(path+"/" + file, usecols=['html'], encoding="utf-8")
+        df = pd.read_csv(path+"/" + file, encoding="utf-8")
+        # df = pd.read_csv(path / file, encoding="utf-8")
+        df['content'] = ''
+        index = 0
+        for html in df['html']:
+            csvinfo = str(html)
 
+            
+            if csvinfo != 'nan':
+                # print(csvinfo_replace)
+                soup = BeautifulSoup(csvinfo, 'lxml')
+                # print(soup)
+                THRESHOLD = 4 
+                res = trim_node(soup)
+                while soup.find_all(attrs={'style':'border: 4px solid red;'}) == []: 
+                    THRESHOLD -= 1
+                    if THRESHOLD == 0:
+                        break
+                    res = trim_node(soup)
+                    print(THRESHOLD)
+                
+                # writing in to html
+                f = open(path1+"/"+file.strip('.csv')+'.html','w',encoding="utf-8")
+                f.write(str(soup))
+                print(1)
+                f.close()
+                break    
+    break
 
