@@ -54,36 +54,41 @@ keywords=['Datenschutzerklärung','Datenschutz','Datenschutzhinweise',
 
 
 from pathlib import Path
-path = Path( r"C:/Users/F-CUI/Desktop/ZEW/26" )
-files = list(path.glob("*.csv"))
-print(files)
-
-for file in files: 
-    print(file) 
-    df = pd.read_csv(file, index_col=0, encoding="utf-8")
-    df['content'] = ''
-    for index, row in df.iterrows():
-        html = row['html']
-        csvinfo = str(html)
-        if csvinfo != 'nan':
-            soup = BeautifulSoup(csvinfo, 'lxml')
-            THRESHOLD = 4 
-            res = trim_node(soup)  
-            while soup.find_all(attrs={'style':'border: 4px solid red;'}) == []: 
-                THRESHOLD -= 1
-                if THRESHOLD == 0:
-                    break
-                res = trim_node(soup)
-                print(THRESHOLD)
-                
-            box = soup.find(attrs={'style':'border: 4px solid red;'})
-            if box != None:
-                df.loc[index,'content'] = box.get_text()   
-    print(df['content'])
-    df.to_csv(file, encoding="utf-8")
-    
-    # # for further check
-    # df = pd.read_csv(file,usecols=['content'], encoding="utf-8") 
+path = Path( r"E:\policies_output" )
+folders= [format(i, '#04x')[2:4] for i in range(256)]
+folders_given = [g.name for g in path.glob('*')]
+if all([f in folders_given for f in folders]): # check if the folders are correct
+    for folder in folders:
+        path = path / folder
+        files = list(path.glob("*.csv"))
+        print(files)
+        
+        for file in files: 
+            print(file) 
+            df = pd.read_csv(file, index_col=0, encoding="utf-8")
+            df['content'] = ''
+            for index, row in df.iterrows():
+                html = row['html']
+                csvinfo = str(html)
+                if csvinfo != 'nan':
+                    soup = BeautifulSoup(csvinfo, 'lxml')
+                    THRESHOLD = 4 
+                    res = trim_node(soup)  
+                    while soup.find_all(attrs={'style':'border: 4px solid red;'}) == []: 
+                        THRESHOLD -= 1
+                        if THRESHOLD == 0:
+                            break
+                        res = trim_node(soup)
+                        print(THRESHOLD)
+                        
+                    box = soup.find(attrs={'style':'border: 4px solid red;'})
+                    if box != None:
+                        df.loc[index,'content'] = box.get_text()   
+            print(df['content'])
+            df.to_csv(file, encoding="utf-8")
+            
+            # # for further check
+            # df = pd.read_csv(file,usecols=['content'], encoding="utf-8") 
    
 
 

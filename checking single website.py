@@ -12,6 +12,13 @@ import csv
 import pandas as pd
 import re
 from flask import Flask
+
+import os
+
+import citations
+
+from pathlib import Path
+
 app = Flask(__name__)
 
 
@@ -58,13 +65,9 @@ keywords=['Datenschutzerklärung','Datenschutz','Datenschutzhinweise',
 
 
 
-import os
-import glob
 
-from pathlib import Path
 # path = Path( r"C:/Users/F-CUI/Desktop/ZEW/26" )
-path = r"C:\Users\F-CUI\Desktop\ZEW\2test"
-path1 = r"C:\Users\F-CUI\Desktop\ZEW\test"
+path = r"C:\Users\F-CUI\Desktop\ZEW\test"
 
 files= os.listdir(path) 
 # files = list(path.glob("*.csv"))
@@ -73,36 +76,34 @@ print(files)
 s = []
 for file in files: 
     print(file)
-    contentlist = []
-    if not os.path.isdir(file): 
-        
-        # df = pd.read_csv(path+"/" + file, usecols=['html'], encoding="utf-8")
-        df = pd.read_csv(path+"/" + file, encoding="utf-8")
-        # df = pd.read_csv(path / file, encoding="utf-8")
-        df['content'] = ''
-        index = 0
-        for html in df['html']:
-            csvinfo = str(html)
+    
+    df = pd.read_csv(path+"/" + file, encoding="utf-8")
+    # df = pd.read_csv(path / file, encoding="utf-8")
+    df['content'] = ''
+    index = 0
+    for html in df['html']:
+        csvinfo = str(html)
 
-            
-            if csvinfo != 'nan':
-                # print(csvinfo_replace)
-                soup = BeautifulSoup(csvinfo, 'lxml')
-                # print(soup)
-                THRESHOLD = 4 
+        
+        if csvinfo != 'nan':
+            soup = BeautifulSoup(csvinfo, 'lxml')
+            THRESHOLD = 4 
+            res = trim_node(soup)
+            while soup.find_all(attrs={'style':'border: 4px solid red;'}) == []: 
+                THRESHOLD -= 1
+                if THRESHOLD == 0:
+                    break
                 res = trim_node(soup)
-                while soup.find_all(attrs={'style':'border: 4px solid red;'}) == []: 
-                    THRESHOLD -= 1
-                    if THRESHOLD == 0:
-                        break
-                    res = trim_node(soup)
-                    print(THRESHOLD)
-                
-                # writing in to html
-                f = open(path1+"/"+file.strip('.csv')+'.html','w',encoding="utf-8")
-                f.write(str(soup))
-                print(1)
-                f.close()
-                break    
+                print(THRESHOLD)
+
+            citations.replace_html(soup, tag_style='border: 1px solid black')
+
+            # writing in to html
+            f = open(path+"/"+file.strip('.csv')+'.html','w',encoding="utf-8")
+
+            f.write(str(soup))
+            print(1)
+            f.close()
+            break    
     break
 

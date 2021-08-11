@@ -6,6 +6,7 @@ Created on Fri Jul  9 16:36:21 2021
 """
 import bs4
 import re
+import citations
 
 
 def score_text(text: str) -> int:
@@ -99,6 +100,10 @@ def process(html):
     #         filtered_list[4].parent['style'] = 'border: 4px solid green;'
   
     
+    #a new citations highlighting method  
+    citations.replace_html(soup, tag_style='border: 4px solid black')
+    
+    
     # Highlight titles
     # Pattern 1: with the tag 'strong'
     strongcontents = soup.find_all('strong')
@@ -125,7 +130,7 @@ def process(html):
     #     soup = bs4.BeautifulSoup(soup, 'lxml')
     
     # Highlight citations
-    soup = highlight(regexp,res1,str(soup))
-    soup = bs4.BeautifulSoup(soup, 'lxml')
+    # soup = highlight(regexp,res1,str(soup))
+    # soup = bs4.BeautifulSoup(soup, 'lxml')
 
     return soup
