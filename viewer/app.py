@@ -9,6 +9,7 @@ import sys
 sys.path.append('..')
 import processor
 import citations
+from readability.readability import Document
 
 
 policy_path = pathlib.Path("C:/Users/F-CUI/Desktop/ZEW/26")
@@ -68,7 +69,7 @@ class Policies:
                 return len(self.html) > 0
             # read in a new file and append it's content
             file = self.csv_files.pop()
-            dat = pd.read_csv(file)
+            dat = pd.read_csv(file, encoding="utf-8")
             # Get the unique policies
             for dig in dat.digest.unique():
                     ind = (dat.digest == dig).argmax()
@@ -194,6 +195,20 @@ def get_policy():
         return "Error"
     return str(policy)
 
+@app.route('/text', methods=['GET', 'POST'])
+def gettext():
+    # First get the user settings.
+    user = request.cookies.get('userID', None)
+    if user is None or user not in user_settings:
+        return redirect('/login')
+    setting = user_settings[user]
+
+    policy = user_policy_dict[user][1]
+    readable_article = Document(str(policy)).summary()
+    if policy is None:
+        return "Error"
+    return readable_article
+
 @app.route('/keywords', methods=['GET', 'POST'])
 def keywords():
     if request.method == 'POST':
@@ -210,6 +225,8 @@ def keywords():
             ofile.write(data)
     data = citations.get_keywords_data()
     return render_template('keywords.html', data=data)
+
+
 
 @app.route('/help')
 def help_route():

@@ -6,8 +6,8 @@
     <link rel="stylesheet" href="static/policy.css">
     <link rel="stylesheet" href="static/menu.css">
 </head>
-<body>
 
+<body>
 <div id="response_header">
 
     <span id="menu_left">
@@ -52,8 +52,9 @@
 
 </div>
 
-<iframe id="mainframe" src="/policy"></iframe>
 
-
-</body>
+<iframe id="mainframe" name="left" src="/policy"  style="position: absolute; left: 0; width: 50%; height: 100%; z-index: 1;"></iframe>
+<iframe id="secondframe" name="right" src="/text"  style="position: absolute; right: 0; width: 50%; height: 100%; z-index:2;"></iframe>
+</frameset>
+<body>
 </html>

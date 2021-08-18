@@ -11,7 +11,8 @@ import citations
 
 def score_text(text: str) -> int:
     words = ''.join(filter(lambda x: x.isalpha() or x.isspace(), text))
-    words = set(words.split(' '))
+    words = words.split(' ')
+    # words = set(words.split(' '))
     score = 0
     for keyword in keywords:
         if keyword in words:
@@ -49,12 +50,12 @@ def trim_node1(root):
             if score_text(child.get_text())>0:
                 child['style'] = 'border: 3px solid orange;'
                   
-keywords=['Datenschutzerklärung','Datenschutz','Datenschutzhinweise',
+keywords=set(['Datenschutzerklärung','Datenschutz','Datenschutzhinweise',
       'EU-Datenschutz¬grundverordnung','Datenschutzbeauftragte',
       'Datenschutzbeauftragter','Datenschutzbeauftragten',
       'Personenbezogene','Personenbezogener','Daten',
       'Verarbeitung','personenbezogenen','DSGVO','DS-GVO',
-      'Rechte','Auskunft','Auskunftsrecht','Recht','Analytics']
+      'Rechte','Auskunft','Auskunftsrecht','Recht','Analytics'])
 
 # THRESHOLD = 4
 

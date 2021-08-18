@@ -11,6 +11,8 @@ import requests
 import csv
 import pandas as pd
 import re
+from readability import Document
+
 from flask import Flask
 
 import os
@@ -84,7 +86,6 @@ keywords=set(['Datenschutzerklärung','Datenschutz','Datenschutzhinweise',
           'Personenbezogene','Personenbezogener','Daten',
           'Verarbeitung','personenbezogenen','DSGVO','DS-GVO',
           'Rechte','Auskunft','Auskunftsrecht','Recht','Analytics'])
-
 def res2(match):
     """This function replaces the found citation with a span element with different background."""
     return f'<span style="background: blue;">{match.group()}</span>'
@@ -102,6 +103,8 @@ path = r"C:\Users\F-CUI\Desktop\ZEW\test"
 files= os.listdir(path) 
 # files = list(path.glob("*.csv"))
 
+
+
 print(files)
 s = []
 for file in files: 
@@ -114,8 +117,16 @@ for file in files:
     for html in df['html']:
         csvinfo = str(html)
 
+        # cleaning unicode encoding special character '�'
+        csvinfo = csvinfo.replace('�','y')
         
         if csvinfo != 'nan':
+            
+            # Method 1
+            doc = Document(csvinfo)
+            readable_article = doc.summary()
+
+            # Method 2
             soup = BeautifulSoup(csvinfo, 'lxml')
             THRESHOLD = 4 
             counter = 0
@@ -127,19 +138,13 @@ for file in files:
                     break               
                 counter = 0
                 res = trim_node(soup)
-                
-
-            citations.replace_html(soup, tag_style='border: 1px solid black')
-
-
-            for pattern in keywords:
-                text = re.compile(pattern,re.I)
-                soup = highlight(text,res2,str(soup))
-                soup = bs4.BeautifulSoup(soup, 'lxml')
 
             # writing in to html
             f = open(path+"/"+file.strip('.csv')+'.html','w',encoding="utf-8")
+            f.write(readable_article)
+            f.close()
 
+            f = open(path+"/"+file.strip('.csv')+'1'+'.html','w',encoding="utf-8")
             f.write(str(soup))
             f.close()
             # break    

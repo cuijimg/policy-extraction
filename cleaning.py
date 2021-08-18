@@ -11,8 +11,7 @@ import requests
 import csv
 import pandas as pd
 import re
-from flask import Flask
-app = Flask(__name__)
+from readability import Document
 
 
 csv.field_size_limit(500 * 1024 * 1024)
@@ -70,20 +69,31 @@ if all([f in folders_given for f in folders]): # check if the folders are correc
             for index, row in df.iterrows():
                 html = row['html']
                 csvinfo = str(html)
+
+                # cleaning unicode encoding special character '�'
+                csvinfo = csvinfo.replace('�','y')
+
                 if csvinfo != 'nan':
-                    soup = BeautifulSoup(csvinfo, 'lxml')
-                    THRESHOLD = 4 
-                    res = trim_node(soup)  
-                    while soup.find_all(attrs={'style':'border: 4px solid red;'}) == []: 
-                        THRESHOLD -= 1
-                        if THRESHOLD == 0:
-                            break
-                        res = trim_node(soup)
-                        print(THRESHOLD)
+                    # # Method 1
+                    # soup = BeautifulSoup(csvinfo, 'lxml')
+                    # THRESHOLD = 4 
+                    # res = trim_node(soup)  
+                    # while soup.find_all(attrs={'style':'border: 4px solid red;'}) == []: 
+                    #     THRESHOLD -= 1
+                    #     if THRESHOLD == 0:
+                    #         break
+                    #     res = trim_node(soup)
+                    #     print(THRESHOLD)
                         
-                    box = soup.find(attrs={'style':'border: 4px solid red;'})
-                    if box != None:
-                        df.loc[index,'content'] = box.get_text()   
+                    # box = soup.find(attrs={'style':'border: 4px solid red;'})
+                    # if box != None:
+                    #     df.loc[index,'content'] = box.get_text()   
+
+                    # # Method 2: using 'readability' package
+                    doc = Document(csvinfo)
+                    readable_article = doc.summary()
+                    df.loc[index,'content'] = readable_article
+
             print(df['content'])
             df.to_csv(file, encoding="utf-8")
             
