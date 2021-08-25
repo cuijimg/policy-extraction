@@ -1,0 +1,364 @@
+INFO:werkzeug: * Running on http://10.1.141.117:5000/ (Press CTRL+C to quit)
+INFO:werkzeug:192.168.31.76 - - [20/Aug/2021 10:54:23] "[32mGET / HTTP/1.1[0m" 302 -
+INFO:werkzeug:192.168.31.76 - - [20/Aug/2021 10:54:24] "GET /login HTTP/1.1" 200 -
+INFO:werkzeug:192.168.31.76 - - [20/Aug/2021 10:54:26] "[36mGET /static/login.css HTTP/1.1[0m" 304 -
+INFO:werkzeug:192.168.31.76 - - [20/Aug/2021 10:54:26] "[36mGET /static/menu.css HTTP/1.1[0m" 304 -
+INFO:werkzeug:192.168.31.76 - - [20/Aug/2021 10:54:26] "[36mGET /static/question_mark.svg HTTP/1.1[0m" 304 -
+INFO:werkzeug:192.168.31.76 - - [20/Aug/2021 10:54:26] "GET /static/wrench-svgrepo-com.svg HTTP/1.1" 200 -
+INFO:werkzeug:192.168.31.76 - - [20/Aug/2021 10:54:31] "[32mPOST /login HTTP/1.1[0m" 302 -
+INFO:werkzeug:192.168.31.76 - - [20/Aug/2021 10:54:37] "GET / HTTP/1.1" 200 -
+INFO:werkzeug:192.168.31.76 - - [20/Aug/2021 10:54:37] "[36mGET /static/menu.css HTTP/1.1[0m" 304 -
+INFO:werkzeug:192.168.31.76 - - [20/Aug/2021 10:54:37] "[36mGET /static/policy.css HTTP/1.1[0m" 304 -
+INFO:werkzeug:192.168.31.76 - - [20/Aug/2021 10:54:37] "GET /policy HTTP/1.1" 200 -
+INFO:werkzeug:192.168.31.76 - - [20/Aug/2021 10:54:37] "[36mGET /static/wrench-svgrepo-com.svg HTTP/1.1[0m" 304 -
+INFO:werkzeug:192.168.31.76 - - [20/Aug/2021 10:54:37] "[36mGET /static/question_mark.svg HTTP/1.1[0m" 304 -
+DEBUG:readability.readability:Removing unlikely candidate - #container>.header-nav
+DEBUG:readability.readability:Removing unlikely candidate - .header-nav>header#header
+DEBUG:readability.readability:Removing unlikely candidate - .header-nav>nav#menu-primary.menu
+DEBUG:readability.readability:Removing unlikely candidate - nav#menu-primary.menu>.menu-container.menu-dropdown.menu-search
+DEBUG:readability.readability:Removing unlikely candidate - .menu-container.menu-dropdown.menu-search>#menu-toggle-primary.menu-toggle
+DEBUG:readability.readability:Removing unlikely candidate - #menu-toggle-primary.menu-toggle>a.menu-toggle-open
+DEBUG:readability.readability:Removing unlikely candidate - a.menu-toggle-open>span.menu-toggle-text.screen-reader-text
+DEBUG:readability.readability:Removing unlikely candidate - #menu-toggle-primary.menu-toggle>a.menu-toggle-close
+DEBUG:readability.readability:Removing unlikely candidate - a.menu-toggle-close>span.menu-toggle-text.screen-reader-text
+DEBUG:readability.readability:Removing unlikely candidate - .wrap>ul#menu-primary-items.menu-items
+DEBUG:readability.readability:Removing unlikely candidate - ul#menu-primary-items.menu-items>li#menu-item-509.menu-item.menu-item-type-post_type.menu-item-object-page.menu-item-home.menu-item-509
+DEBUG:readability.readability:Removing unlikely candidate - ul#menu-primary-items.menu-items>li#menu-item-174.menu-item.menu-item-type-post_type.menu-item-object-page.menu-item-174
+DEBUG:readability.readability:Removing unlikely candidate - ul#menu-primary-items.menu-items>li#menu-item-40.menu-item.menu-item-type-post_type.menu-item-object-page.menu-item-40
+DEBUG:readability.readability:Removing unlikely candidate - ul#menu-primary-items.menu-items>li#menu-item-75.menu-item.menu-item-type-post_type.menu-item-object-page.menu-item-75
+DEBUG:readability.readability:Removing unlikely candidate - ul#menu-primary-items.menu-items>li#menu-item-76.menu-item.menu-item-type-post_type.menu-item-object-page.menu-item-76
+DEBUG:readability.readability:Removing unlikely candidate - ul#menu-primary-items.menu-items>li#menu-item-135.menu-item.menu-item-type-post_type.menu-item-object-page.menu-item-135
+DEBUG:readability.readability:Removing unlikely candidate - ul#menu-primary-items.menu-items>li#menu-item-134.menu-item.menu-item-type-post_type.menu-item-object-page.menu-item-134
+DEBUG:readability.readability:Removing unlikely candidate - ul#menu-primary-items.menu-items>li#menu-item-153.menu-item.menu-item-type-post_type.menu-item-object-page.menu-item-153
+DEBUG:readability.readability:Removing unlikely candidate - ul#menu-primary-items.menu-items>li#menu-item-854.menu-item.menu-item-type-post_type.menu-item-object-page.menu-item-854
+DEBUG:readability.readability:Removing unlikely candidate - form.search-form>input#search-menu.search-field
+DEBUG:readability.readability:Removing unlikely candidate - #container>footer#footer
+DEBUG:readability.readability:Removing unlikely candidate - footer#footer>nav#menu-footer.menu
+DEBUG:readability.readability:Removing unlikely candidate - nav#menu-footer.menu>.menu-container
+DEBUG:readability.readability:Removing unlikely candidate - .wrap>ul#menu-footer-items.menu-items
+DEBUG:readability.readability:Removing unlikely candidate - ul#menu-footer-items.menu-items>li#menu-copyright.menu-item
+DEBUG:readability.readability:Removing unlikely candidate - ul#menu-footer-items.menu-items>li#menu-item-852.menu-item.menu-item-type-post_type.menu-item-object-page.menu-item-852
+DEBUG:readability.readability:Removing unlikely candidate - ul#menu-footer-items.menu-items>li#menu-item-851.menu-item.menu-item-type-post_type.menu-item-object-page.menu-item-851
+DEBUG:readability.readability:Removing unlikely candidate - ul#menu-footer-items.menu-items>li#menu-item-850.menu-item.menu-item-type-post_type.menu-item-object-page.menu-item-privacy-policy.current-menu-item.page_item.page-item-156.current_page_item.menu-item-850
+DEBUG:readability.readability:Removing unlikely candidate - .moove-gdpr-modal-left-content>ul#moove-gdpr-menu
+DEBUG:readability.readability:Removing unlikely candidate - ul#moove-gdpr-menu>li.menu-item-on.menu-item-privacy_overview.menu-item-selected
+DEBUG:readability.readability:Removing unlikely candidate - ul#moove-gdpr-menu>li.menu-item-strict-necessary-cookies.menu-item-off
+DEBUG:readability.readability:Removing unlikely candidate - .moove-gdpr-modal-right-content>.moove-gdpr-modal-footer-content
+DEBUG:readability.readability:Branch 445.920 article#post-156.post-156.page.type-page.status-publish.hentry.entry>.wrap link density 0.006 -> 443.285
+DEBUG:readability.readability:Branch 157.265 .wrap>article#post-156.post-156.page.type-page.status-publish.hentry.entry link density 0.006 -> 156.336
+DEBUG:readability.readability:Branch 802.780 .wrap>.entry-content link density 0.006 -> 798.030
+DEBUG:readability.readability:Branch 107.250 body#readabilityBody>#container link density 0.006 -> 106.583
+DEBUG:readability.readability:Branch 126.125 html>body#readabilityBody link density 0.007 -> 125.245
+DEBUG:readability.readability:Branch 116.000 .moove-gdpr-info-bar-content>.moove-gdpr-cookie-notice link density 0.020 -> 113.730
+DEBUG:readability.readability:Branch 135.500 .moove-gdpr-info-bar-container>.moove-gdpr-info-bar-content link density 0.019 -> 132.935
+DEBUG:readability.readability:Branch 40.000 #privacy_overview.moove-gdpr-tab-main>.moove-gdpr-tab-main-content link density 0.000 -> 40.000
+DEBUG:readability.readability:Branch 135.000 .moove-gdpr-tab-content>#privacy_overview.moove-gdpr-tab-main link density 0.000 -> 135.000
+DEBUG:readability.readability:Branch 38.400 #strict-necessary-cookies.moove-gdpr-tab-main>.moove-gdpr-tab-main-content link density 0.000 -> 38.400
+DEBUG:readability.readability:Branch 32.195 .moove-gdpr-tab-content>#strict-necessary-cookies.moove-gdpr-tab-main link density 0.000 -> 32.195
+DEBUG:readability.readability:Branch 13.020 .moove-gdpr-tab-main-content>.moove-gdpr-strict-warning-message link density 0.000 -> 13.020
+DEBUG:readability.readability:Top 5 : 798.030 .wrap>.entry-content
+DEBUG:readability.readability:Top 5 : 443.285 article#post-156.post-156.page.type-page.status-publish.hentry.entry>.wrap
+DEBUG:readability.readability:Top 5 : 156.336 .wrap>article#post-156.post-156.page.type-page.status-publish.hentry.entry
+DEBUG:readability.readability:Top 5 : 135.000 .moove-gdpr-tab-content>#privacy_overview.moove-gdpr-tab-main
+DEBUG:readability.readability:Top 5 : 132.935 .moove-gdpr-info-bar-container>.moove-gdpr-info-bar-content
+DEBUG:readability.readability:Not removing .entry-content>ul of length 68:  i) Recht auf Widerruf einer datenschutz...
+DEBUG:readability.readability:Not removing .entry-content>ul of length 74:  h) Automatisierte Entscheidungen im Ein...
+DEBUG:readability.readability:Not removing .entry-content>ul of length 27:  g) Recht auf Widerspruch 
+DEBUG:readability.readability:Not removing .entry-content>ul of length 37:  f) Recht auf Datenübertragbarkeit 
+DEBUG:readability.readability:Not removing li>ul of length 918: Die Richtigkeit der personenbezogenen Da...
+DEBUG:readability.readability:Not removing .entry-content>ul of length 918: Die Richtigkeit der personenbezogenen Da...
+DEBUG:readability.readability:Not removing .entry-content>ul of length 46:  e) Recht auf Einschränkung der Verarbei...
+DEBUG:readability.readability:Not removing .entry-content>ul of length 53:  d) Recht auf Löschung (Recht auf Verges...
+DEBUG:readability.readability:Not removing .entry-content>ul of length 28:  c) Recht auf Berichtigung 
+DEBUG:readability.readability:Not removing li>ul of length 1412: die Verarbeitungszweckedie Kategorien pe...
+DEBUG:readability.readability:Not removing .entry-content>ul of length 1412: die Verarbeitungszweckedie Kategorien pe...
+DEBUG:readability.readability:Removed 798.030 .entry-content>ul with weight 100 cause it has too short content length 24 without a single image.
+DEBUG:readability.readability:Not removing .entry-content>ul of length 27:  a) Recht auf Bestätigung 
+DEBUG:readability.readability:Not removing .entry-content>ul of length 65:  g) Verantwortlicher oder für die Verarb...
+DEBUG:readability.readability:Not removing .entry-content>ul of length 36:  d) Einschränkung der Verarbeitung 
+DEBUG:readability.readability:Removed 798.030 .entry-content>ul with weight 0 cause it has too short content length 23 without a single image.
+DEBUG:readability.readability:Not removing .entry-content>ul of length 28:  a) personenbezogene Daten 
+INFO:werkzeug:192.168.31.76 - - [20/Aug/2021 10:54:37] "GET /text HTTP/1.1" 200 -
+INFO:werkzeug:192.168.31.76 - - [20/Aug/2021 10:54:39] "GET /policy HTTP/1.1" 200 -
+ERROR:app:Exception on / [GET]
+Traceback (most recent call last):
+  File "C:\Users\F-CUI\AppData\Local\Programs\Python\Python39\lib\site-packages\flask\app.py", line 2070, in wsgi_app
+    response = self.full_dispatch_request()
+  File "C:\Users\F-CUI\AppData\Local\Programs\Python\Python39\lib\site-packages\flask\app.py", line 1515, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "C:\Users\F-CUI\AppData\Local\Programs\Python\Python39\lib\site-packages\flask\app.py", line 1513, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "C:\Users\F-CUI\AppData\Local\Programs\Python\Python39\lib\site-packages\flask\app.py", line 1499, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**req.view_args)
+  File "C:\Users\F-CUI\Desktop\ZEW\policy-extraction-github\viewer\app.py", line 150, in view_patent
+    id, policy = pol.next_result()
+  File "C:\Users\F-CUI\Desktop\ZEW\policy-extraction-github\viewer\app.py", line 98, in next_result
+    return id, processor.process(html)
+  File "C:\Users\F-CUI\Desktop\ZEW\policy-extraction-github\viewer\processor.py", line 105, in process
+    citations.replace_html(soup, tag_style='border: 4px solid black')
+  File "C:\Users\F-CUI\AppData\Local\Programs\Python\Python39\lib\site-packages\citations\interface.py", line 87, in replace_html
+    processed_full = process(text)
+  File "C:\Users\F-CUI\AppData\Local\Programs\Python\Python39\lib\site-packages\citations\extraction.py", line 157, in process
+    cits, cit_len = extract_citation(
+  File "C:\Users\F-CUI\AppData\Local\Programs\Python\Python39\lib\site-packages\citations\extraction.py", line 82, in extract_citation
+    tmp_val = extract_numeral(word)
+  File "C:\Users\F-CUI\AppData\Local\Programs\Python\Python39\lib\site-packages\citations\extraction.py", line 18, in extract_numeral
+    return int(tmp) if int(tmp) > 0 else None
+ValueError: invalid literal for int() with base 10: '12-21'
+INFO:werkzeug:192.168.31.76 - - [20/Aug/2021 10:54:47] "[35m[1mGET / HTTP/1.1[0m" 500 -
+INFO:werkzeug:192.168.31.76 - - [20/Aug/2021 10:54:56] "GET / HTTP/1.1" 200 -
+INFO:werkzeug:192.168.31.76 - - [20/Aug/2021 10:54:56] "[36mGET /static/menu.css HTTP/1.1[0m" 304 -
+INFO:werkzeug:192.168.31.76 - - [20/Aug/2021 10:54:56] "[36mGET /static/policy.css HTTP/1.1[0m" 304 -
+INFO:werkzeug:192.168.31.76 - - [20/Aug/2021 10:54:56] "GET /policy HTTP/1.1" 200 -
+INFO:werkzeug:192.168.31.76 - - [20/Aug/2021 10:54:56] "[36mGET /static/question_mark.svg HTTP/1.1[0m" 304 -
+INFO:werkzeug:192.168.31.76 - - [20/Aug/2021 10:54:56] "[36mGET /static/wrench-svgrepo-com.svg HTTP/1.1[0m" 304 -
+DEBUG:readability.readability:Removing unlikely candidate - #page.hfeed.site>header#masthead.site-header
+DEBUG:readability.readability:Removing unlikely candidate - header#masthead.site-header>.site-header-inner
+DEBUG:readability.readability:Removing unlikely candidate - nav#site-navigation.main-navigation>h1.menu-toggle
+DEBUG:readability.readability:Removing unlikely candidate - nav#site-navigation.main-navigation>.menu-hauptmenue-container
+DEBUG:readability.readability:Removing unlikely candidate - .menu-hauptmenue-container>ul#menu-hauptmenue.menu
+DEBUG:readability.readability:Removing unlikely candidate - ul#menu-hauptmenue.menu>li#menu-item-215.menu-item.menu-item-type-custom.menu-item-object-custom.menu-item-215
+DEBUG:readability.readability:Removing unlikely candidate - ul#menu-hauptmenue.menu>li#menu-item-26.menu-item.menu-item-type-post_type.menu-item-object-page.menu-item-26
+DEBUG:readability.readability:Removing unlikely candidate - ul#menu-hauptmenue.menu>li#menu-item-23.menu-item.menu-item-type-post_type.menu-item-object-page.menu-item-23
+DEBUG:readability.readability:Removing unlikely candidate - ul#menu-hauptmenue.menu>li#menu-item-22.menu-item.menu-item-type-post_type.menu-item-object-page.menu-item-22
+DEBUG:readability.readability:Removing unlikely candidate - ul#menu-hauptmenue.menu>li#menu-item-417.menu-item.menu-item-type-custom.menu-item-object-custom.menu-item-417
+DEBUG:readability.readability:Removing unlikely candidate - ul#menu-hauptmenue.menu>li#menu-item-21.menu-item.menu-item-type-post_type.menu-item-object-page.menu-item-21
+DEBUG:readability.readability:Removing unlikely candidate - ul#menu-hauptmenue.menu>li#menu-item-205.menu-item.menu-item-type-post_type.menu-item-object-page.menu-item-205
+DEBUG:readability.readability:Removing unlikely candidate - .site-header-inner>.header-search
+DEBUG:readability.readability:Removing unlikely candidate - article#post-58.post-58.page.type-page.status-publish.hentry.keywords-abdeckvlies.keywords-ablaufabdeckungen.keywords-akemi.keywords-bauwerkzeuge.keywords-bohrkronen.keywords-bosch.keywords-dewalt.keywords-diamant.keywords-diamantbohrkronen.keywords-diamantscheibe.keywords-diamantschleifteller.keywords-diamanttrennscheiben.keywords-diamantwerkzeuge-und-werkzeug.keywords-einhell.keywords-feinsteinzeug.keywords-festool.keywords-flex.keywords-fliesen.keywords-fliesenbearbeitung.keywords-fliesenlegerausstattung.keywords-fliesenlegerwerkzeug.keywords-fliesenreparatur.keywords-fliesenschneidemaschine.keywords-fliesenschneider.keywords-fliesenschneidmaschinen.keywords-fliesenwerkzeug.keywords-frediam.keywords-frenka.keywords-germering.keywords-geschaeft.keywords-gulliabdeckungen.keywords-johann.keywords-laden.keywords-makita.keywords-malerabdeckvlies.keywords-muenchen.keywords-nassschneider.keywords-naturstein.keywords-preiswert.keywords-puchheim.keywords-schleifteller.keywords-starnberg.keywords-steinpflegeprodukte.keywords-steinschutzvlies.keywords-steintrennmaschine.keywords-steintrennmaschinen.keywords-stonelux.keywords-tanos.keywords-tanos-mobil.keywords-trockenbohrkronen.keywords-verfugung.keywords-werkzeuge.keywords-wolfcraft>header.entry-header
+DEBUG:readability.readability:Removing unlikely candidate - .widget-area>aside#nav_menu-3.widget.widget_nav_menu
+DEBUG:readability.readability:Removing unlikely candidate - aside#nav_menu-3.widget.widget_nav_menu>.menu-partner-container
+DEBUG:readability.readability:Removing unlikely candidate - .menu-partner-container>ul#menu-partner.menu
+DEBUG:readability.readability:Removing unlikely candidate - ul#menu-partner.menu>li#menu-item-223.menu-item.menu-item-type-custom.menu-item-object-custom.menu-item-223
+DEBUG:readability.readability:Removing unlikely candidate - ul#menu-partner.menu>li#menu-item-222.menu-item.menu-item-type-custom.menu-item-object-custom.menu-item-222
+DEBUG:readability.readability:Removing unlikely candidate - ul#menu-partner.menu>li#menu-item-224.menu-item.menu-item-type-custom.menu-item-object-custom.menu-item-224
+DEBUG:readability.readability:Removing unlikely candidate - .widget-area>aside#nav_menu-2.widget.widget_nav_menu
+DEBUG:readability.readability:Removing unlikely candidate - aside#nav_menu-2.widget.widget_nav_menu>.menu-rechtliches-container
+DEBUG:readability.readability:Removing unlikely candidate - .menu-rechtliches-container>ul#menu-rechtliches.menu
+DEBUG:readability.readability:Removing unlikely candidate - ul#menu-rechtliches.menu>li#menu-item-28.menu-item.menu-item-type-post_type.menu-item-object-page.menu-item-28
+DEBUG:readability.readability:Removing unlikely candidate - ul#menu-rechtliches.menu>li#menu-item-66.menu-item.menu-item-type-post_type.menu-item-object-page.current-menu-item.page_item.page-item-58.current_page_item.menu-item-66
+DEBUG:readability.readability:Removing unlikely candidate - ul#menu-rechtliches.menu>li#menu-item-65.menu-item.menu-item-type-post_type.menu-item-object-page.menu-item-65
+DEBUG:readability.readability:Removing unlikely candidate - ul#menu-rechtliches.menu>li#menu-item-64.menu-item.menu-item-type-post_type.menu-item-object-page.menu-item-64
+DEBUG:readability.readability:Removing unlikely candidate - ul#menu-rechtliches.menu>li#menu-item-29.menu-item.menu-item-type-post_type.menu-item-object-page.menu-item-29
+DEBUG:readability.readability:Removing unlikely candidate - #page.hfeed.site>footer#colophon.site-footer
+DEBUG:readability.readability:Branch 176.720 article#post-58.post-58.page.type-page.status-publish.hentry.keywords-abdeckvlies.keywords-ablaufabdeckungen.keywords-akemi.keywords-bauwerkzeuge.keywords-bohrkronen.keywords-bosch.keywords-dewalt.keywords-diamant.keywords-diamantbohrkronen.keywords-diamantscheibe.keywords-diamantschleifteller.keywords-diamanttrennscheiben.keywords-diamantwerkzeuge-und-werkzeug.keywords-einhell.keywords-feinsteinzeug.keywords-festool.keywords-flex.keywords-fliesen.keywords-fliesenbearbeitung.keywords-fliesenlegerausstattung.keywords-fliesenlegerwerkzeug.keywords-fliesenreparatur.keywords-fliesenschneidemaschine.keywords-fliesenschneider.keywords-fliesenschneidmaschinen.keywords-fliesenwerkzeug.keywords-frediam.keywords-frenka.keywords-germering.keywords-geschaeft.keywords-gulliabdeckungen.keywords-johann.keywords-laden.keywords-makita.keywords-malerabdeckvlies.keywords-muenchen.keywords-nassschneider.keywords-naturstein.keywords-preiswert.keywords-puchheim.keywords-schleifteller.keywords-starnberg.keywords-steinpflegeprodukte.keywords-steinschutzvlies.keywords-steintrennmaschine.keywords-steintrennmaschinen.keywords-stonelux.keywords-tanos.keywords-tanos-mobil.keywords-trockenbohrkronen.keywords-verfugung.keywords-werkzeuge.keywords-wolfcraft>.entry-content link density 0.027 -> 171.861
+DEBUG:readability.readability:Branch 153.360 main#main.site-main>article#post-58.post-58.page.type-page.status-publish.hentry.keywords-abdeckvlies.keywords-ablaufabdeckungen.keywords-akemi.keywords-bauwerkzeuge.keywords-bohrkronen.keywords-bosch.keywords-dewalt.keywords-diamant.keywords-diamantbohrkronen.keywords-diamantscheibe.keywords-diamantschleifteller.keywords-diamanttrennscheiben.keywords-diamantwerkzeuge-und-werkzeug.keywords-einhell.keywords-feinsteinzeug.keywords-festool.keywords-flex.keywords-fliesen.keywords-fliesenbearbeitung.keywords-fliesenlegerausstattung.keywords-fliesenlegerwerkzeug.keywords-fliesenreparatur.keywords-fliesenschneidemaschine.keywords-fliesenschneider.keywords-fliesenschneidmaschinen.keywords-fliesenwerkzeug.keywords-frediam.keywords-frenka.keywords-germering.keywords-geschaeft.keywords-gulliabdeckungen.keywords-johann.keywords-laden.keywords-makita.keywords-malerabdeckvlies.keywords-muenchen.keywords-nassschneider.keywords-naturstein.keywords-preiswert.keywords-puchheim.keywords-schleifteller.keywords-starnberg.keywords-steinpflegeprodukte.keywords-steinschutzvlies.keywords-steintrennmaschine.keywords-steintrennmaschinen.keywords-stonelux.keywords-tanos.keywords-tanos-mobil.keywords-trockenbohrkronen.keywords-verfugung.keywords-werkzeuge.keywords-wolfcraft link density 0.027 -> 149.143
+DEBUG:readability.readability:Branch 10.400 aside#black-studio-tinymce-3.widget.widget_black_studio_tinymce>.textwidget link density 0.128 ->  9.072
+DEBUG:readability.readability:Branch -25.300 .widget-area>aside#black-studio-tinymce-3.widget.widget_black_studio_tinymce link density 0.111 -> -22.489
+DEBUG:readability.readability:Branch  7.750 aside#black-studio-tinymce-6.widget.widget_black_studio_tinymce>.textwidget link density 0.000 ->  7.750
+DEBUG:readability.readability:Branch -26.625 .widget-area>aside#black-studio-tinymce-6.widget.widget_black_studio_tinymce link density 0.000 -> -26.625
+DEBUG:readability.readability:Branch  8.770 aside#black-studio-tinymce-4.widget.widget_black_studio_tinymce>.textwidget link density 0.000 ->  8.770
+DEBUG:readability.readability:Branch -26.115 .widget-area>aside#black-studio-tinymce-4.widget.widget_black_studio_tinymce link density 0.000 -> -26.115
+DEBUG:readability.readability:Top 5 : 171.861 article#post-58.post-58.page.type-page.status-publish.hentry.keywords-abdeckvlies.keywords-ablaufabdeckungen.keywords-akemi.keywords-bauwerkzeuge.keywords-bohrkronen.keywords-bosch.keywords-dewalt.keywords-diamant.keywords-diamantbohrkronen.keywords-diamantscheibe.keywords-diamantschleifteller.keywords-diamanttrennscheiben.keywords-diamantwerkzeuge-und-werkzeug.keywords-einhell.keywords-feinsteinzeug.keywords-festool.keywords-flex.keywords-fliesen.keywords-fliesenbearbeitung.keywords-fliesenlegerausstattung.keywords-fliesenlegerwerkzeug.keywords-fliesenreparatur.keywords-fliesenschneidemaschine.keywords-fliesenschneider.keywords-fliesenschneidmaschinen.keywords-fliesenwerkzeug.keywords-frediam.keywords-frenka.keywords-germering.keywords-geschaeft.keywords-gulliabdeckungen.keywords-johann.keywords-laden.keywords-makita.keywords-malerabdeckvlies.keywords-muenchen.keywords-nassschneider.keywords-naturstein.keywords-preiswert.keywords-puchheim.keywords-schleifteller.keywords-starnberg.keywords-steinpflegeprodukte.keywords-steinschutzvlies.keywords-steintrennmaschine.keywords-steintrennmaschinen.keywords-stonelux.keywords-tanos.keywords-tanos-mobil.keywords-trockenbohrkronen.keywords-verfugung.keywords-werkzeuge.keywords-wolfcraft>.entry-content
+DEBUG:readability.readability:Top 5 : 149.143 main#main.site-main>article#post-58.post-58.page.type-page.status-publish.hentry.keywords-abdeckvlies.keywords-ablaufabdeckungen.keywords-akemi.keywords-bauwerkzeuge.keywords-bohrkronen.keywords-bosch.keywords-dewalt.keywords-diamant.keywords-diamantbohrkronen.keywords-diamantscheibe.keywords-diamantschleifteller.keywords-diamanttrennscheiben.keywords-diamantwerkzeuge-und-werkzeug.keywords-einhell.keywords-feinsteinzeug.keywords-festool.keywords-flex.keywords-fliesen.keywords-fliesenbearbeitung.keywords-fliesenlegerausstattung.keywords-fliesenlegerwerkzeug.keywords-fliesenreparatur.keywords-fliesenschneidemaschine.keywords-fliesenschneider.keywords-fliesenschneidmaschinen.keywords-fliesenwerkzeug.keywords-frediam.keywords-frenka.keywords-germering.keywords-geschaeft.keywords-gulliabdeckungen.keywords-johann.keywords-laden.keywords-makita.keywords-malerabdeckvlies.keywords-muenchen.keywords-nassschneider.keywords-naturstein.keywords-preiswert.keywords-puchheim.keywords-schleifteller.keywords-starnberg.keywords-steinpflegeprodukte.keywords-steinschutzvlies.keywords-steintrennmaschine.keywords-steintrennmaschinen.keywords-stonelux.keywords-tanos.keywords-tanos-mobil.keywords-trockenbohrkronen.keywords-verfugung.keywords-werkzeuge.keywords-wolfcraft
+DEBUG:readability.readability:Top 5 :  9.072 aside#black-studio-tinymce-3.widget.widget_black_studio_tinymce>.textwidget
+DEBUG:readability.readability:Top 5 :  8.770 aside#black-studio-tinymce-4.widget.widget_black_studio_tinymce>.textwidget
+DEBUG:readability.readability:Top 5 :  7.750 aside#black-studio-tinymce-6.widget.widget_black_studio_tinymce>.textwidget
+INFO:werkzeug:192.168.31.76 - - [20/Aug/2021 10:54:56] "GET /text HTTP/1.1" 200 -
+INFO:werkzeug: * Running on http://10.1.141.117:5000/ (Press CTRL+C to quit)
+INFO:werkzeug: * Running on http://10.1.141.117:5000/ (Press CTRL+C to quit)
+INFO:werkzeug: * Running on http://10.1.141.117:5000/ (Press CTRL+C to quit)
+INFO:werkzeug: * Running on http://10.1.141.117:5000/ (Press CTRL+C to quit)
+INFO:werkzeug:192.168.31.76 - - [20/Aug/2021 11:03:46] "[32mGET / HTTP/1.1[0m" 302 -
+INFO:werkzeug:192.168.31.76 - - [20/Aug/2021 11:03:46] "GET /login HTTP/1.1" 200 -
+INFO:werkzeug:192.168.31.76 - - [20/Aug/2021 11:03:47] "[36mGET /static/menu.css HTTP/1.1[0m" 304 -
+INFO:werkzeug:192.168.31.76 - - [20/Aug/2021 11:03:47] "GET /static/login.css HTTP/1.1" 200 -
+INFO:werkzeug:192.168.31.76 - - [20/Aug/2021 11:03:47] "[36mGET /static/question_mark.svg HTTP/1.1[0m" 304 -
+INFO:werkzeug:192.168.31.76 - - [20/Aug/2021 11:03:47] "[36mGET /static/wrench-svgrepo-com.svg HTTP/1.1[0m" 304 -
+INFO:werkzeug:192.168.31.76 - - [20/Aug/2021 11:03:51] "[32mPOST /login HTTP/1.1[0m" 302 -
+INFO:werkzeug:192.168.31.76 - - [20/Aug/2021 11:03:54] "GET / HTTP/1.1" 200 -
+INFO:werkzeug:192.168.31.76 - - [20/Aug/2021 11:03:54] "[36mGET /static/policy.css HTTP/1.1[0m" 304 -
+INFO:werkzeug:192.168.31.76 - - [20/Aug/2021 11:03:54] "[36mGET /static/menu.css HTTP/1.1[0m" 304 -
+INFO:werkzeug:192.168.31.76 - - [20/Aug/2021 11:03:54] "GET /policy HTTP/1.1" 200 -
+INFO:werkzeug:192.168.31.76 - - [20/Aug/2021 11:03:54] "[36mGET /static/question_mark.svg HTTP/1.1[0m" 304 -
+INFO:werkzeug:192.168.31.76 - - [20/Aug/2021 11:03:54] "[36mGET /static/wrench-svgrepo-com.svg HTTP/1.1[0m" 304 -
+DEBUG:readability.readability:Removing unlikely candidate - #wrapper>#mobile_header
+DEBUG:readability.readability:Removing unlikely candidate - select#MobileMainNavigation.menu.dropdown-menu>option.menu-item.menu-item-type-post_type.menu-item-object-page.menu-item-home.menu-item-10.menu-item-depth-0
+DEBUG:readability.readability:Removing unlikely candidate - select#MobileMainNavigation.menu.dropdown-menu>option.menu-item.menu-item-type-post_type.menu-item-object-page.menu-item-29.menu-item-depth-0
+DEBUG:readability.readability:Removing unlikely candidate - select#MobileMainNavigation.menu.dropdown-menu>option.menu-item.menu-item-type-post_type.menu-item-object-page.menu-item-28.menu-item-depth-0
+DEBUG:readability.readability:Removing unlikely candidate - select#MobileMainNavigation.menu.dropdown-menu>option.menu-item.menu-item-type-post_type.menu-item-object-page.menu-item-663.menu-item-depth-0
+DEBUG:readability.readability:Removing unlikely candidate - select#MobileMainNavigation.menu.dropdown-menu>option.menu-item.menu-item-type-post_type.menu-item-object-page.menu-item-772.menu-item-depth-0
+DEBUG:readability.readability:Removing unlikely candidate - select#MobileMainNavigation.menu.dropdown-menu>option.menu-item.menu-item-type-post_type.menu-item-object-page.menu-item-1060.menu-item-depth-0
+DEBUG:readability.readability:Removing unlikely candidate - select#MobileMainNavigation.menu.dropdown-menu>option.menu-item.menu-item-type-post_type.menu-item-object-page.menu-item-31.menu-item-depth-0
+DEBUG:readability.readability:Removing unlikely candidate - select#MobileMainNavigation.menu.dropdown-menu>option.menu-item.menu-item-type-post_type.menu-item-object-page.menu-item-530.menu-item-depth-0
+DEBUG:readability.readability:Removing unlikely candidate - select#MobileMainNavigation.menu.dropdown-menu>option.menu-item.menu-item-type-post_type.menu-item-object-page.menu-item-27.menu-item-depth-0
+DEBUG:readability.readability:Removing unlikely candidate - #wrapper>#sidebar
+DEBUG:readability.readability:Removing unlikely candidate - #sidebar>.sidebar_top
+DEBUG:readability.readability:Removing unlikely candidate - #sidebar>.sidebar_content
+DEBUG:readability.readability:Removing unlikely candidate - ul#menu-rt-theme-main-navigation-menu>li#menu-item-10.menu-item.menu-item-type-post_type.menu-item-object-page.menu-item-home.menu-item-10.first
+DEBUG:readability.readability:Removing unlikely candidate - ul#menu-rt-theme-main-navigation-menu>li#menu-item-29.menu-item.menu-item-type-post_type.menu-item-object-page.menu-item-29
+DEBUG:readability.readability:Removing unlikely candidate - ul#menu-rt-theme-main-navigation-menu>li#menu-item-28.menu-item.menu-item-type-post_type.menu-item-object-page.menu-item-28
+DEBUG:readability.readability:Removing unlikely candidate - ul#menu-rt-theme-main-navigation-menu>li#menu-item-663.menu-item.menu-item-type-post_type.menu-item-object-page.menu-item-663
+DEBUG:readability.readability:Removing unlikely candidate - ul#menu-rt-theme-main-navigation-menu>li#menu-item-772.menu-item.menu-item-type-post_type.menu-item-object-page.menu-item-772
+DEBUG:readability.readability:Removing unlikely candidate - ul#menu-rt-theme-main-navigation-menu>li#menu-item-1060.menu-item.menu-item-type-post_type.menu-item-object-page.menu-item-1060
+DEBUG:readability.readability:Removing unlikely candidate - ul#menu-rt-theme-main-navigation-menu>li#menu-item-31.menu-item.menu-item-type-post_type.menu-item-object-page.menu-item-31
+DEBUG:readability.readability:Removing unlikely candidate - ul#menu-rt-theme-main-navigation-menu>li#menu-item-530.menu-item.menu-item-type-post_type.menu-item-object-page.menu-item-530
+DEBUG:readability.readability:Removing unlikely candidate - ul#menu-rt-theme-main-navigation-menu>li#menu-item-27.menu-item.menu-item-type-post_type.menu-item-object-page.menu-item-27
+DEBUG:readability.readability:Removing unlikely candidate - .sidebar_content>.box.dynamic_sidebar.widget.widget_contact_info
+DEBUG:readability.readability:Removing unlikely candidate - #sidebar>.sidebar_bottom
+DEBUG:readability.readability:Removing unlikely candidate - #container>#footer
+DEBUG:readability.readability:Removing unlikely candidate - #footer>ul#menu-rt-theme-footer-navigation-menu.footer_links
+DEBUG:readability.readability:Removing unlikely candidate - ul#menu-rt-theme-footer-navigation-menu.footer_links>li#menu-item-310.menu-item.menu-item-type-post_type.menu-item-object-page.menu-item-home.menu-item-310.first
+DEBUG:readability.readability:Removing unlikely candidate - ul#menu-rt-theme-footer-navigation-menu.footer_links>li#menu-item-312.menu-item.menu-item-type-post_type.menu-item-object-page.menu-item-312
+DEBUG:readability.readability:Removing unlikely candidate - ul#menu-rt-theme-footer-navigation-menu.footer_links>li#menu-item-309.menu-item.menu-item-type-post_type.menu-item-object-page.menu-item-309
+DEBUG:readability.readability:Removing unlikely candidate - ul#menu-rt-theme-footer-navigation-menu.footer_links>li#menu-item-1208.menu-item.menu-item-type-post_type.menu-item-object-page.current-menu-item.page_item.page-item-1206.current_page_item.menu-item-1208
+DEBUG:readability.readability:Branch 28.090 html>body#readabilityBody link density 0.025 -> 27.401
+DEBUG:readability.readability:Branch  1.545 html link density 0.025 ->  1.507
+DEBUG:readability.readability:Branch 141.650 #content>.content link density 0.025 -> 138.092
+DEBUG:readability.readability:Branch 31.255 #wrapper>#content link density 0.025 -> 30.470
+DEBUG:readability.readability:Branch 248.280 .content>.entry-content.single-page link density 0.025 -> 242.078
+DEBUG:readability.readability:Top 5 : 242.078 .content>.entry-content.single-page
+DEBUG:readability.readability:Top 5 : 138.092 #content>.content
+DEBUG:readability.readability:Top 5 : 30.470 #wrapper>#content
+DEBUG:readability.readability:Top 5 : 27.401 html>body#readabilityBody
+DEBUG:readability.readability:Top 5 :  1.507 html
+DEBUG:readability.readability:Not removing .entry-content.single-page>ul of length 141:  Browsertyp und Browserversion verwendet...
+INFO:werkzeug:192.168.31.76 - - [20/Aug/2021 11:03:54] "GET /text HTTP/1.1" 200 -
+INFO:werkzeug:192.168.31.76 - - [20/Aug/2021 11:03:57] "GET / HTTP/1.1" 200 -
+INFO:werkzeug:192.168.31.76 - - [20/Aug/2021 11:03:57] "[36mGET /static/policy.css HTTP/1.1[0m" 304 -
+INFO:werkzeug:192.168.31.76 - - [20/Aug/2021 11:03:57] "[36mGET /static/menu.css HTTP/1.1[0m" 304 -
+INFO:werkzeug:192.168.31.76 - - [20/Aug/2021 11:03:57] "GET /policy HTTP/1.1" 200 -
+INFO:werkzeug:192.168.31.76 - - [20/Aug/2021 11:03:57] "[36mGET /static/question_mark.svg HTTP/1.1[0m" 304 -
+INFO:werkzeug:192.168.31.76 - - [20/Aug/2021 11:03:57] "[36mGET /static/wrench-svgrepo-com.svg HTTP/1.1[0m" 304 -
+DEBUG:readability.readability:Removing unlikely candidate - li>.dropdown-menu
+DEBUG:readability.readability:Removing unlikely candidate - nav.navbar.navbar-inverse>.navbar-header
+DEBUG:readability.readability:Removing unlikely candidate - li.dropdown>ul.dropdown-menu
+DEBUG:readability.readability:Removing unlikely candidate - ul.dropdown-menu>li.dropdown-submenu
+DEBUG:readability.readability:Removing unlikely candidate - li.dropdown-submenu>ul.dropdown-menu
+DEBUG:readability.readability:Removing unlikely candidate - ul.dropdown-menu>li.dropdown-submenu
+DEBUG:readability.readability:Removing unlikely candidate - li.dropdown-submenu>ul.dropdown-menu
+DEBUG:readability.readability:Removing unlikely candidate - li.dropdown>ul.dropdown-menu
+DEBUG:readability.readability:Removing unlikely candidate - li.dropdown>ul.dropdown-menu
+DEBUG:readability.readability:Removing unlikely candidate - ul.dropdown-menu>li.dropdown-submenu
+DEBUG:readability.readability:Removing unlikely candidate - li.dropdown-submenu>ul.dropdown-menu
+DEBUG:readability.readability:Removing unlikely candidate - li.dropdown>ul.dropdown-menu
+DEBUG:readability.readability:Removing unlikely candidate - li.dropdown>ul.dropdown-menu
+DEBUG:readability.readability:Removing unlikely candidate - #c1880.csc-default>.csc-header.csc-header-n1
+DEBUG:readability.readability:Removing unlikely candidate - .csc-header.csc-header-n1>.page-header
+DEBUG:readability.readability:Removing unlikely candidate - .page-header>h1.csc-firstHeader
+DEBUG:readability.readability:Removing unlikely candidate - #c1191.csc-default>.csc-header.csc-header-n1
+DEBUG:readability.readability:Removing unlikely candidate - .csc-header.csc-header-n1>h2.csc-firstHeader
+DEBUG:readability.readability:Removing unlikely candidate - #c1190.csc-default>.csc-header.csc-header-n1
+DEBUG:readability.readability:Removing unlikely candidate - .csc-header.csc-header-n1>h2.csc-firstHeader
+DEBUG:readability.readability:Removing unlikely candidate - body#readabilityBody.page-177.template-t3sbootstrap__1>footer#page-footer.footer.footer-inverse
+DEBUG:readability.readability:Removing unlikely candidate - nav#c1299.csc-default>.csc-header.csc-header-n1
+DEBUG:readability.readability:Removing unlikely candidate - .csc-header.csc-header-n1>h5.csc-firstHeader
+DEBUG:readability.readability:Branch 79.190 .col-xs-12.col-sm-8.col-md-9>#c1880.csc-default link density 0.000 -> 79.190
+DEBUG:readability.readability:Branch 42.095 .row>.col-xs-12.col-sm-8.col-md-9 link density 0.000 -> 42.095
+DEBUG:readability.readability:Branch 12.440 #c1881.csc-default>#c1191.csc-default link density 0.067 -> 11.606
+DEBUG:readability.readability:Branch  8.720 .col-xs-12.col-sm-4.col-md-3>#c1881.csc-default link density 0.067 ->  8.135
+DEBUG:readability.readability:Branch  8.480 .media.article.articletype-0>.media-body link density 0.216 ->  6.649
+DEBUG:readability.readability:Branch  6.740 .news-list-view>.media.article.articletype-0 link density 0.216 ->  5.284
+DEBUG:readability.readability:Top 5 : 79.190 .col-xs-12.col-sm-8.col-md-9>#c1880.csc-default
+DEBUG:readability.readability:Top 5 : 42.095 .row>.col-xs-12.col-sm-8.col-md-9
+DEBUG:readability.readability:Top 5 : 11.606 #c1881.csc-default>#c1191.csc-default
+DEBUG:readability.readability:Top 5 :  8.135 .col-xs-12.col-sm-4.col-md-3>#c1881.csc-default
+DEBUG:readability.readability:Top 5 :  6.649 .media.article.articletype-0>.media-body
+INFO:werkzeug:192.168.31.76 - - [20/Aug/2021 11:03:57] "GET /text HTTP/1.1" 200 -
+INFO:werkzeug:192.168.31.76 - - [20/Aug/2021 11:04:19] "GET / HTTP/1.1" 200 -
+INFO:werkzeug:192.168.31.76 - - [20/Aug/2021 11:04:19] "[36mGET /static/policy.css HTTP/1.1[0m" 304 -
+INFO:werkzeug:192.168.31.76 - - [20/Aug/2021 11:04:19] "GET /policy HTTP/1.1" 200 -
+INFO:werkzeug:192.168.31.76 - - [20/Aug/2021 11:04:19] "[36mGET /static/menu.css HTTP/1.1[0m" 304 -
+INFO:werkzeug:192.168.31.76 - - [20/Aug/2021 11:04:19] "[36mGET /static/question_mark.svg HTTP/1.1[0m" 304 -
+INFO:werkzeug:192.168.31.76 - - [20/Aug/2021 11:04:19] "[36mGET /static/wrench-svgrepo-com.svg HTTP/1.1[0m" 304 -
+DEBUG:readability.readability:Removing unlikely candidate - li>.dropdown-menu
+DEBUG:readability.readability:Removing unlikely candidate - nav.navbar.navbar-inverse>.navbar-header
+DEBUG:readability.readability:Removing unlikely candidate - li.dropdown>ul.dropdown-menu
+DEBUG:readability.readability:Removing unlikely candidate - ul.dropdown-menu>li.dropdown-submenu
+DEBUG:readability.readability:Removing unlikely candidate - li.dropdown-submenu>ul.dropdown-menu
+DEBUG:readability.readability:Removing unlikely candidate - ul.dropdown-menu>li.dropdown-submenu
+DEBUG:readability.readability:Removing unlikely candidate - li.dropdown-submenu>ul.dropdown-menu
+DEBUG:readability.readability:Removing unlikely candidate - li.dropdown>ul.dropdown-menu
+DEBUG:readability.readability:Removing unlikely candidate - li.dropdown>ul.dropdown-menu
+DEBUG:readability.readability:Removing unlikely candidate - ul.dropdown-menu>li.dropdown-submenu
+DEBUG:readability.readability:Removing unlikely candidate - li.dropdown-submenu>ul.dropdown-menu
+DEBUG:readability.readability:Removing unlikely candidate - li.dropdown>ul.dropdown-menu
+DEBUG:readability.readability:Removing unlikely candidate - li.dropdown>ul.dropdown-menu
+DEBUG:readability.readability:Removing unlikely candidate - #c1880.csc-default>.csc-header.csc-header-n1
+DEBUG:readability.readability:Removing unlikely candidate - .csc-header.csc-header-n1>.page-header
+DEBUG:readability.readability:Removing unlikely candidate - .page-header>h1.csc-firstHeader
+DEBUG:readability.readability:Removing unlikely candidate - #c1191.csc-default>.csc-header.csc-header-n1
+DEBUG:readability.readability:Removing unlikely candidate - .csc-header.csc-header-n1>h2.csc-firstHeader
+DEBUG:readability.readability:Removing unlikely candidate - #c1190.csc-default>.csc-header.csc-header-n1
+DEBUG:readability.readability:Removing unlikely candidate - .csc-header.csc-header-n1>h2.csc-firstHeader
+DEBUG:readability.readability:Removing unlikely candidate - body#readabilityBody.page-177.template-t3sbootstrap__1>footer#page-footer.footer.footer-inverse
+DEBUG:readability.readability:Removing unlikely candidate - nav#c1299.csc-default>.csc-header.csc-header-n1
+DEBUG:readability.readability:Removing unlikely candidate - .csc-header.csc-header-n1>h5.csc-firstHeader
+DEBUG:readability.readability:Branch 79.190 .col-xs-12.col-sm-8.col-md-9>#c1880.csc-default link density 0.000 -> 79.190
+DEBUG:readability.readability:Branch 42.095 .row>.col-xs-12.col-sm-8.col-md-9 link density 0.000 -> 42.095
+DEBUG:readability.readability:Branch 12.440 #c1881.csc-default>#c1191.csc-default link density 0.067 -> 11.606
+DEBUG:readability.readability:Branch  8.720 .col-xs-12.col-sm-4.col-md-3>#c1881.csc-default link density 0.067 ->  8.135
+DEBUG:readability.readability:Branch  8.520 .media.article.articletype-0>.media-body link density 0.301 ->  5.954
+DEBUG:readability.readability:Branch  6.760 .news-list-view>.media.article.articletype-0 link density 0.301 ->  4.724
+DEBUG:readability.readability:Top 5 : 79.190 .col-xs-12.col-sm-8.col-md-9>#c1880.csc-default
+DEBUG:readability.readability:Top 5 : 42.095 .row>.col-xs-12.col-sm-8.col-md-9
+DEBUG:readability.readability:Top 5 : 11.606 #c1881.csc-default>#c1191.csc-default
+DEBUG:readability.readability:Top 5 :  8.135 .col-xs-12.col-sm-4.col-md-3>#c1881.csc-default
+DEBUG:readability.readability:Top 5 :  5.954 .media.article.articletype-0>.media-body
+INFO:werkzeug:192.168.31.76 - - [20/Aug/2021 11:04:19] "GET /text HTTP/1.1" 200 -
+INFO:werkzeug:192.168.31.76 - - [20/Aug/2021 11:04:25] "GET / HTTP/1.1" 200 -
+INFO:werkzeug:192.168.31.76 - - [20/Aug/2021 11:04:25] "[36mGET /static/policy.css HTTP/1.1[0m" 304 -
+INFO:werkzeug:192.168.31.76 - - [20/Aug/2021 11:04:25] "GET /policy HTTP/1.1" 200 -
+INFO:werkzeug:192.168.31.76 - - [20/Aug/2021 11:04:25] "[36mGET /static/menu.css HTTP/1.1[0m" 304 -
+DEBUG:readability.readability:Removing unlikely candidate - div{01}>header.content_section__header
+INFO:werkzeug:192.168.31.76 - - [20/Aug/2021 11:04:25] "[36mGET /static/question_mark.svg HTTP/1.1[0m" 304 -
+INFO:werkzeug:192.168.31.76 - - [20/Aug/2021 11:04:25] "[36mGET /static/wrench-svgrepo-com.svg HTTP/1.1[0m" 304 -
+DEBUG:readability.readability:Branch 229.060 main.main>section.imprint_text.content_section link density 0.018 -> 224.971
+DEBUG:readability.readability:Branch 127.030 .content>main.main link density 0.018 -> 124.762
+DEBUG:readability.readability:Top 5 : 224.971 main.main>section.imprint_text.content_section
+DEBUG:readability.readability:Top 5 : 124.762 .content>main.main
+DEBUG:readability.readability:Not removing section.imprint_text.content_section>ul.ul1 of length 561:  eine Berichtigung oder Löschung der Sie...
+DEBUG:readability.readability:Not removing section.imprint_text.content_section>ul.ul1 of length 447:  die Verarbeitungszwecke Ihrer Daten; di...
+DEBUG:readability.readability:Not removing section.imprint_text.content_section>ul.ul1 of length 187:  Vorname und Name Adresse(n) (Strasse un...
+DEBUG:readability.readability:Not removing section.imprint_text.content_section>ul.ul1 of length 417:  Sie Ihre ausdrückliche Einwilligung daz...
+DEBUG:readability.readability:Not removing section.imprint_text.content_section>ul of length 96:  das Anbahnen, das Aufrechterhalten und/...
+INFO:werkzeug:192.168.31.76 - - [20/Aug/2021 11:04:25] "GET /text HTTP/1.1" 200 -
+INFO:werkzeug:192.168.31.76 - - [20/Aug/2021 11:05:02] "GET / HTTP/1.1" 200 -
+INFO:werkzeug:192.168.31.76 - - [20/Aug/2021 11:05:02] "[36mGET /static/policy.css HTTP/1.1[0m" 304 -
+INFO:werkzeug:192.168.31.76 - - [20/Aug/2021 11:05:02] "[36mGET /static/menu.css HTTP/1.1[0m" 304 -
+INFO:werkzeug:192.168.31.76 - - [20/Aug/2021 11:05:02] "GET /policy HTTP/1.1" 200 -
+INFO:werkzeug:192.168.31.76 - - [20/Aug/2021 11:05:02] "[36mGET /static/question_mark.svg HTTP/1.1[0m" 304 -
+DEBUG:readability.readability:Removing unlikely candidate - .diywebContainer>.diywebFooter
+DEBUG:readability.readability:Removing unlikely candidate - .diywebGutter>#contentfooter
+DEBUG:readability.readability:Removing unlikely candidate - .leftrow>span.footer-separator
+DEBUG:readability.readability:Removing unlikely candidate - span.loggedin>span.footer-separator
+INFO:werkzeug:192.168.31.76 - - [20/Aug/2021 11:05:02] "[36mGET /static/wrench-svgrepo-com.svg HTTP/1.1[0m" 304 -
+DEBUG:readability.readability:Branch  9.930 .diyweb>.diywebContainer link density 0.000 ->  9.930
+DEBUG:readability.readability:Branch  7.465 .diyw>.diyweb link density 0.022 ->  7.299
+DEBUG:readability.readability:Branch 88.000 #matrix_1027375850.sortable-matrix>.n.module-type-text.diyfeLiveArea link density 0.000 -> 88.000
+DEBUG:readability.readability:Branch 34.000 #content_area>#matrix_1027375850.sortable-matrix link density 0.000 -> 34.000
+DEBUG:readability.readability:Top 5 : 88.000 #matrix_1027375850.sortable-matrix>.n.module-type-text.diyfeLiveArea
+DEBUG:readability.readability:Top 5 : 34.000 #content_area>#matrix_1027375850.sortable-matrix
+DEBUG:readability.readability:Top 5 :  9.930 .diyweb>.diywebContainer
+DEBUG:readability.readability:Top 5 :  7.299 .diyw>.diyweb
+INFO:werkzeug:192.168.31.76 - - [20/Aug/2021 11:05:02] "GET /text HTTP/1.1" 200 -
+INFO:werkzeug:192.168.31.76 - - [20/Aug/2021 11:13:08] "GET / HTTP/1.1" 200 -
+INFO:werkzeug:192.168.31.76 - - [20/Aug/2021 11:13:09] "[36mGET /static/menu.css HTTP/1.1[0m" 304 -
+INFO:werkzeug:192.168.31.76 - - [20/Aug/2021 11:13:09] "[36mGET /static/policy.css HTTP/1.1[0m" 304 -
+INFO:werkzeug:192.168.31.76 - - [20/Aug/2021 11:13:09] "GET /policy HTTP/1.1" 200 -
+INFO:werkzeug:192.168.31.76 - - [20/Aug/2021 11:13:09] "[36mGET /static/question_mark.svg HTTP/1.1[0m" 304 -
+INFO:werkzeug:192.168.31.76 - - [20/Aug/2021 11:13:09] "[36mGET /static/wrench-svgrepo-com.svg HTTP/1.1[0m" 304 -
+DEBUG:readability.readability:Removing unlikely candidate - .container>header.header
+DEBUG:readability.readability:Removing unlikely candidate - header.header>.header-inner.clearfix
+DEBUG:readability.readability:Removing unlikely candidate - .header-inner.clearfix>.header-search.pull-right
+DEBUG:readability.readability:Removing unlikely candidate - .nav-collapse>ul.nav.menu.nav-pills
+DEBUG:readability.readability:Removing unlikely candidate - .item-page>.page-header
+DEBUG:readability.readability:Removing unlikely candidate - nav.well.hidden-phone>h3.page-header
+DEBUG:readability.readability:Removing unlikely candidate - nav.well.hidden-phone>ul.nav.menu.nav-list
+DEBUG:readability.readability:Removing unlikely candidate - .well>h3.page-header
+DEBUG:readability.readability:Removing unlikely candidate - body#readabilityBody.site.com_content.view-article.no-layout.no-task.itemid-126>footer.footer
+DEBUG:readability.readability:Removing unlikely candidate - .container>ul.nav.menu.nav-pills
+DEBUG:readability.readability:Branch 30.230 .item-page>div{01} link density 0.019 -> 29.659
+DEBUG:readability.readability:Branch 42.615 main#content.span9>.item-page link density 0.019 -> 41.810
+DEBUG:readability.readability:Branch  2.550 tbody>tr{02} link density 0.000 ->  2.550
+DEBUG:readability.readability:Branch  2.410 table>tbody link density 0.200 ->  1.928
+DEBUG:readability.readability:Branch  2.270 tbody>tr{03} link density 0.794 ->  0.467
+DEBUG:readability.readability:Top 5 : 41.810 main#content.span9>.item-page
+DEBUG:readability.readability:Top 5 : 29.659 .item-page>div{01}
+DEBUG:readability.readability:Top 5 :  2.550 tbody>tr{02}
+DEBUG:readability.readability:Top 5 :  1.928 table>tbody
+DEBUG:readability.readability:Top 5 :  0.467 tbody>tr{03}
+DEBUG:readability.readability:Not removing .item-page>div{01} of length 1059:  Die Nutzung unserer Webseite ist in der...
+DEBUG:readability.readability:Not removing div{02}>.item-page of length 1059:  Die Nutzung unserer Webseite ist in der...
+DEBUG:readability.readability:Not removing body>div{02} of length 1059:  Die Nutzung unserer Webseite ist in der...
+INFO:werkzeug:192.168.31.76 - - [20/Aug/2021 11:13:09] "GET /text HTTP/1.1" 200 -

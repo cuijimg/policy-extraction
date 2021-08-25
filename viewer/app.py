@@ -1,6 +1,7 @@
 import bs4
 import pandas as pd
 import pathlib
+import re
 import random
 from dataclasses import dataclass
 from flask import Flask, request, render_template, redirect, make_response
@@ -205,6 +206,10 @@ def gettext():
 
     policy = user_policy_dict[user][1]
     readable_article = Document(str(policy)).summary()
+    # patternlist = {"telefax:.*","email:.*","telefon:.*","website:.*","^\nE-Mail:.*","Deutschland","[0-9]{5}[\s|\w]{1,20}",".*gmbh",".*Straße.*",".*Strasse.*",".*Fax.*","E-Mail:.*","Tel\..*",".*str\..*"}
+    # for pattern in patternlist:
+    #     text = re.compile(pattern,re.I)
+    #     readable_article = re.sub(text,'',readable_article)
     if policy is None:
         return "Error"
     return readable_article

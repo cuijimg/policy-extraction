@@ -1,4 +1,3 @@
-
 #coding=utf-8
 """
 Created on Mon Jul  5 12:25:16 2021
@@ -16,6 +15,16 @@ from readability import Document
 
 csv.field_size_limit(500 * 1024 * 1024)
 
+# remove unicode and ascii, make the html xml-readable
+def remove_control_characters(html):
+    def str_to_int(s, default, base=10):
+        if int(s, base) < 0x10000:
+            return chr(int(s, base))
+        return default
+    html = re.sub(u"&#(\d+);?", lambda c: str_to_int(c.group(1), c.group(0)), html)
+    html = re.sub(u"&#[xX]([0-9a-fA-F]+);?", lambda c: str_to_int(c.group(1), c.group(0), base=16), html)
+    html = re.sub(u"[\x00-\x08\x0b\x0e-\x1f\x7f]", "", html)
+    return html
 
 def score_text(text: str) -> int:
     words = ''.join(filter(lambda x: x.isalpha() or x.isspace(), text))
@@ -54,16 +63,18 @@ keywords=['Datenschutzerklärung','Datenschutz','Datenschutzhinweise',
 
 from pathlib import Path
 path = Path( r"E:\policies_output" )
-folders= [format(i, '#04x')[2:4] for i in range(256)]
+folders= [format(i, '#04x')[2:4] for i in range(256)] # generating a list of the folder names in the format of #04x
 folders_given = [g.name for g in path.glob('*')]
 if all([f in folders_given for f in folders]): # check if the folders are correct
     for folder in folders:
-        path = path / folder
+        
+        path = Path( r"E:\policies_output" ) / folder
         files = list(path.glob("*.csv"))
-        print(files)
+        print(folder, path)
+        # print(files)
         
         for file in files: 
-            print(file) 
+            print(folder, file)
             df = pd.read_csv(file, index_col=0, encoding="utf-8")
             df['content'] = ''
             for index, row in df.iterrows():
@@ -72,6 +83,8 @@ if all([f in folders_given for f in folders]): # check if the folders are correc
 
                 # cleaning unicode encoding special character '�'
                 csvinfo = csvinfo.replace('�','y')
+
+                csvinfo = remove_control_characters(csvinfo)
 
                 if csvinfo != 'nan':
                     # # Method 1
@@ -89,16 +102,23 @@ if all([f in folders_given for f in folders]): # check if the folders are correc
                     # if box != None:
                     #     df.loc[index,'content'] = box.get_text()   
 
-                    # # Method 2: using 'readability' package
+                    # Method 2: using 'readability' package
                     doc = Document(csvinfo)
-                    readable_article = doc.summary()
-                    df.loc[index,'content'] = readable_article
+                    try:
+                        readable_article = doc.summary() # extracting the text from html
+                        soup = BeautifulSoup(readable_article,'lxml')
+                        df.loc[index,'content'] = soup.get_text()
+                    except ValueError as e:
+                        print(e)
 
-            print(df['content'])
+
+            # print(df['content'])
             df.to_csv(file, encoding="utf-8")
             
             # # for further check
             # df = pd.read_csv(file,usecols=['content'], encoding="utf-8") 
+            # print(df['content'])
+            # break
    
 
 

@@ -1,5 +1,4 @@
-
-#coding=utf-8
+# coding=utf-8
 """
 Created on Mon Jul  5 12:25:16 2021
 
@@ -96,6 +95,15 @@ def highlight(exp,res, input: str) -> str:
     return exp.sub(res, input)
 
 
+def remove_control_characters(html):
+    def str_to_int(s, default, base=10):
+        if int(s, base) < 0x10000:
+            return chr(int(s, base))
+        return default
+    html = re.sub(u"&#(\d+);?", lambda c: str_to_int(c.group(1), c.group(0)), html)
+    html = re.sub(u"&#[xX]([0-9a-fA-F]+);?", lambda c: str_to_int(c.group(1), c.group(0), base=16), html)
+    html = re.sub(u"[\x00-\x08\x0b\x0e-\x1f\x7f]", "", html)
+    return html
 
 # path = Path( r"C:/Users/F-CUI/Desktop/ZEW/26" )
 path = r"C:\Users\F-CUI\Desktop\ZEW\test"
@@ -114,14 +122,19 @@ for file in files:
     # df = pd.read_csv(path / file, encoding="utf-8")
     df['content'] = ''
     index = 0
+    print(df['html'])
+
+    
+
     for html in df['html']:
         csvinfo = str(html)
 
         # cleaning unicode encoding special character '�'
         csvinfo = csvinfo.replace('�','y')
+        csvinfo = remove_control_characters(csvinfo)
         
         if csvinfo != 'nan':
-            
+            print(csvinfo)
             # Method 1
             doc = Document(csvinfo)
             readable_article = doc.summary()
@@ -138,6 +151,12 @@ for file in files:
                     break               
                 counter = 0
                 res = trim_node(soup)
+            
+            # cleaning contact info
+            patternlist = {"telefax:.*","email:.*","telefon:.*","website:.*","^\nE-Mail:.*","Deutschland","[0-9]{5}[\s|\w]{1,20}",".*gmbh",".*Straße.*",".*Strasse.*",".*Fax.*","E-Mail:.*","Tel\..*",".*str\..*"}
+            for pattern in patternlist:
+                text = re.compile(pattern,re.I)
+                readable_article = re.sub(text,'',readable_article)
 
             # writing in to html
             f = open(path+"/"+file.strip('.csv')+'.html','w',encoding="utf-8")
