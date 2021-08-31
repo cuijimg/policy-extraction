@@ -84,6 +84,7 @@ if all([f in folders_given for f in folders]): # check if the folders are correc
                 # cleaning unicode encoding special character '�'
                 csvinfo = csvinfo.replace('�','y')
 
+                # remove unicode and ascii, make the html xml-readable
                 csvinfo = remove_control_characters(csvinfo)
 
                 if csvinfo != 'nan':
@@ -107,7 +108,9 @@ if all([f in folders_given for f in folders]): # check if the folders are correc
                     try:
                         readable_article = doc.summary() # extracting the text from html
                         soup = BeautifulSoup(readable_article,'lxml')
-                        df.loc[index,'content'] = soup.get_text()
+                        textinfo = soup.get_text()
+                        # textinfo = re.sub(r'[\n|\t]','',csvinfo) # get rid of \n and \t (optional)
+                        df.loc[index,'content'] = textinfo
                     except ValueError as e:
                         print(e)
 
